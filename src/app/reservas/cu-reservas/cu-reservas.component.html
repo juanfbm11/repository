@@ -1,0 +1,22 @@
+<form>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"*ngIf="reserva" class="form-control"id="nombre" name="nombre" 
+      placeholder="ingrese el nombre"[(ngModel)]="reserva.nombre"/>
+  </div>
+  <div class="mb-3">
+    <label for="fechaReserva" class="form-label">Fecha Reserva</label>
+    <input
+      class="form-control"id="fechaReserva"type="datetime-local"*ngIf="reserva"name="fechaReserva"
+      [ngModel]="formatDateTimeLocal (reserva!.fechaReserva)"(ngModelChange)="updateDate($event)"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="total" class="form-label">Total de personas</label>
+    <input
+      type="text"*ngIf="reserva"class="form-control"id="total"name="total"
+      placeholder="Ingrese el total de personas"[(ngModel)]="reserva.total"
+    />
+  </div>
+</form>

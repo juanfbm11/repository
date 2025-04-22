@@ -1,0 +1,14 @@
+<form>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"*ngIf="usuario" class="form-control" id="nombre"name="nombre"placeholder="ingrese el nombre"
+      [(ngModel)]="usuario.nombre"/>
+  </div>
+  <div class="mb-3">
+    <label for="fechaRegistro" class="form-label">Fecha Registro</label>
+    <input
+      class="form-control"id="fechaRegistro"type="datetime-local"*ngIf="usuario"name="fechaRegistro"
+      [ngModel]=" formatDateTimeLocal (usuario!.fechaRegistro)"(ngModelChange)="updateDate($event)"/>
+  </div>
+</form>

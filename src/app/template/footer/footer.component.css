@@ -1,0 +1,77 @@
+/* Pie de Página */
+.pie {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background-color: rgb(161, 130, 98);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pie p {
+    font-size: 1em;
+    color: black;
+}
+
+
+.pie .copyright p {
+    color: white;
+}
+
+.pie .redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pie .redes-sociales img {
+    max-width: 40px;
+    width: 5vw;
+    transition: transform 0.2s ease, filter 0.1s ease;
+}
+
+.pie .redes-sociales img:hover {
+    transform: scale(1.3);
+    filter: brightness(1.5);
+}
+
+.pie a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.pie a:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+.copyright {
+    background-color: #000; /* fondo negro */
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 100%;
+   
+}
+
+
+@media screen and (max-width: 768px) {
+    .MENU {
+        flex-direction: column;
+    }
+
+    .titulo {
+        font-size: 6vw;
+    }
+
+    .Cuerpo {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,36 @@
+<form>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"
+      *ngIf="producto"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="ingrese producto"
+      [(ngModel)]="producto.nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="Precio" class="form-label">Precio</label>
+    <input
+      class="form-control"
+      id="precio"
+      type="number"
+      *ngIf="producto"
+      name="precio"
+      [(ngModel)]="producto.precio"
+    />
+  </div>
+  <div class="mb-3"></div>
+  <label for="stock" class="form-label">Stock</label>
+  <input
+    type="number"
+    *ngIf="producto"
+    class="form-control"
+    id="stock"
+    name="stock"
+    placeholder="Ingrese el total de stock"
+    [(ngModel)]="producto.stock"
+  />
+</form>
