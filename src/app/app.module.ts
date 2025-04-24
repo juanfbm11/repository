@@ -8,14 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,   
     HeaderComponent,
     FooterComponent,
-    LoginComponent, 
+    LoginComponent,
+    HomeComponent,
+   
    
 
   ],

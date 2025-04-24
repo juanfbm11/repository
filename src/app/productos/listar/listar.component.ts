@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Producto } from '../../models/productos';
 import Swal from 'sweetalert2';
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-listar-productos',
@@ -34,7 +35,7 @@ export class ListarComponent {
       this.productoselecionado = undefined;
       this.cerrarModal(this.modal);
     }
-    Swal.fire({title:'Cambio guardado correctamente', icon:'success'});
+    Swal.fire({title:' Guardado correctamente', icon:'success'});
   }
   EliminarProducto(us: Producto){
     Swal.fire({
@@ -63,7 +64,7 @@ export class ListarComponent {
   }
   cerrarModal(modal : ElementRef | undefined){
     if(modal ){
-      let btsModal = modal?.nativeElement.getInstace(modal?.nativeElement);
+      let btsModal = Modal.getInstance(modal.nativeElement);
       btsModal?.hide();
       let backdrop = document.querySelector('.modal-backdrop.fade.show');
       if(backdrop){

@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { Reserva } from '../../models/reservas';
 import Swal from 'sweetalert2';
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-listar-reservas',
@@ -34,14 +35,14 @@ export class ListarComponent {
       this.reservassselecionado = undefined;
       this.cerrarModal(this.modal);
     }
-    Swal.fire({title: 'Cambios Correctamente', icon: 'success'});
+    Swal.fire({title: 'Guardado Correctamente', icon: 'success'});
   }
   EliminarReserva(us: Reserva){
     Swal.fire({
       icon:'question',
-      title: `Esta seguro de eliminar reserva '${us.nombre}'?`,
-      showCancelButton:true,
-      showConfirmButton:true,
+      title: `Esta seguro de eliminar la reserva '${us.nombre}'?`,
+      showCancelButton: true,
+      showConfirmButton: true,
       cancelButtonText: 'No',
       confirmButtonText: 'Si, Eliminar reserva',
       allowOutsideClick: false,
@@ -63,9 +64,9 @@ export class ListarComponent {
   }
   cerrarModal(modal : ElementRef | undefined){
     if(modal){
-      let btsModal = modal?.nativeElement.getInstace(modal?.nativeElement);
+      let btsModal = Modal.getInstance(modal.nativeElement);
       btsModal?.hide();
-      let backdrop = document.querySelector('.modal.-backdrop.fade.show');
+      let backdrop = document.querySelector('.modal-backdrop.fade.show');
       if (backdrop){
         backdrop.parentNode?.removeChild(backdrop);
       }

@@ -42,7 +42,7 @@ export class ListarComponent {
     this.isNew = true;
     this.usuarioselecionado = { id: 0, fechaRegistro: new Date(), nombre: '' };
   }
-  //aca no muestra el mansaje success
+ 
   guardarusuario() {
     if (this.isNew) {
       this.Vectorusuarios.push(this.usuarioselecionado!); //equivalente a una llamar una api por post

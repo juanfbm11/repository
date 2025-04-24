@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  router: any;
-  constructor(router: Router) {}
+  constructor(private router: Router) {}
   goToListar() {
     this.router.navigate(['/usuarios']);
+  }
+  irlogin(){
+    this.router.navigate(['/login'])
   }
 }

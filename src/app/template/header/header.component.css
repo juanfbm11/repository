@@ -211,9 +211,10 @@ body {
 }
 
 .formulario input {
+  margin: 30px;
   width: 100%;
-  max-width: 200px;
-  height: 30px;
+  max-width: 140px;
+  height: 25px;
   padding: 5px;
   font-size: 1em;
   border: 2px solid black;

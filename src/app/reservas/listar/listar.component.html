@@ -24,7 +24,7 @@
           <td>{{ us.total }}</td>
           <td>
             <button
-              class="btn btn-warning me-1"data-bs-toggle="modal"data-bs-target="#modalreserva"
+              class="btn btn-warning me-1" data-bs-toggle="modal" data-bs-target="#modalreserva"
               (click)="Editarreserva(us)"><i class="bi bi-pencil-square"></i>Editar</button>
             <button class="btn btn-danger" (click)="EliminarReserva(us)"><i class="bi bi-trash-fill"></i>Eliminar</button>
           </td>
@@ -37,15 +37,19 @@
 <!-- Modal -->
 <div
   class="modal fade"
-  id="modalreserva" #modalreservadata bs-backdrop="static"data-bs-keyboard="false"
-  tabindex="-1"aria-labelledby="modalreservaLabel"aria-hidden="true">
+  id="modalreserva" #modalreserva 
+  data bs-backdrop="static" 
+  data-bs-keyboard="false"
+  tabindex="-1" 
+  aria-labelledby="modalreservaLabel" 
+  aria-hidden="true">
+
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content"> 
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modalreserva">
+        <h1 class="modal-title fs-5" id="modalreservaLabel">
           {{isNew?'Nueva':'Editar'}} Reserva {{this.reservassselecionado?.nombre}}</h1>
-        <button
-          type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button>
+        <button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <app-cu-reservas [reserva]="reservassselecionado"></app-cu-reservas>

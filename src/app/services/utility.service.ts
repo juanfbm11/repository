@@ -20,7 +20,7 @@ export class UtilityService {
 
   cerrarModal(modal: ElementRef | undefined) {
     if (modal) {
-      let btsModal = Modal.getInstance(modal?.nativeElement);
+      let btsModal = Modal.getInstance(modal.nativeElement);
       btsModal?.hide();
       let backdrop = document.querySelector('.modal-backdrop.fade.show');
       if (backdrop) {
