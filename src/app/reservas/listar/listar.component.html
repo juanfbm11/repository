@@ -1,7 +1,8 @@
 <div class="row justify-content-end">
   <div class="col-lg-1 col-12">
-      <button class="btn btn-success" (click)="nuevareserva()" data-bs-toggle="modal"data-bs-target="#modalreserva">
-        Nuevo</button>
+      <button class="btn btn-success" 
+      (click)="nuevareserva()" data-bs-toggle="modal"data-bs-target="#modalreserva">
+      <i class="bi bi-patch-plus-fill"></i>Agregar</button>
   </div>
 </div>
 <div class="row">
@@ -24,8 +25,8 @@
           <td>
             <button
               class="btn btn-warning me-1"data-bs-toggle="modal"data-bs-target="#modalreserva"
-              (click)="Editarreserva(us)">Editar</button>
-            <button class="btn btn-danger" (click)="EliminarReserva(us)">Eliminar</button>
+              (click)="Editarreserva(us)"><i class="bi bi-pencil-square"></i>Editar</button>
+            <button class="btn btn-danger" (click)="EliminarReserva(us)"><i class="bi bi-trash-fill"></i>Eliminar</button>
           </td>
         </tr>
       </tbody>

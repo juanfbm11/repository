@@ -117,49 +117,55 @@ body {
   max-width: 180px;
   margin: 0;
 }
-
-.Boton_Inicio {
+.botones-container{  
+  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  top: 60px;
-  right: 5%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  text-align: center;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  top: 20px;
+  right: 20px;
+  justify-content: flex-end;
+  gap: 10px;  
 }
 
-.Boton_Inicio:hover {
+.Boton_Inicio, .Boton_cart {   
+  background-color: transparent;
+  border: 2px solid yellow;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;  
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-left: 10px;
+}
+
+.Boton_Inicio:hover, .Boton_cart:hover {
   transform: scale(1.1);
   filter: brightness(2);
+  box-shadow: 0 4px 16px rgb(255, 0,0,0.5);
 }
 
-.InicioSesion {
-  width: 5vw;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.texto-iniciar-sesion {
-  display: block;
-  font-size: 1px;
-  color: white;
-  margin-top: 0.2px;
+.texto-iniciar-sesion, .texto-cart {
+  display: flex;
+  font-size: 16px ;
+  color: rgb(0,0, 0); 
   transition: color 0.3s ease;
 }
 
 .Boton_Inicio:hover .texto-iniciar-sesion {
   color: yellow;
 }
+.Boton_cart:hover .texto-cart{
+  color: yellow;
+}
+
 
 .titulo {
   position: absolute;
-  top: 10%;
-  left: 15%;
+  top: 40px;
+  left: 185px;
   text-shadow: 10px 10px 10px black;
   font-size: 2vw;
-  margin: 0%;
+  margin: 0px;
 }
 
 .Encabezado {

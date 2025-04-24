@@ -1,12 +1,8 @@
 <div class="row justify-content-end">
   <div class="col-lg-1 col-12">
     <button
-      class="btn btn-success"
-      (click)="nuevousuario()"
-      data-bs-toggle="modal"
-      data-bs-target="#modalUsuario" >
-      Nuevo
-    </button>
+      class="btn btn-success"(click)="nuevousuario()"data-bs-toggle="modal"
+      data-bs-target="#modalUsuario" ><i class="bi bi-patch-plus-fill"></i>Agregar</button>
   </div>
 </div>
 
@@ -33,16 +29,9 @@
             <td>{{ us.fechaRegistro | date : "dd/MM/YYYY HH:mm" }}</td>
             <td>
               <button
-                class="btn btn-warning me-1"
-                data-bs-toggle="modal"
-                data-bs-target="#modalUsuario"
-                (click)="EditarUsuario(us)"
-              >
-                Editar
-              </button>
-              <button class="btn btn-danger" (click)="EliminarUsuario(us)">
-                Eliminar
-              </button>
+                class="btn btn-warning me-1"data-bs-toggle="modal"data-bs-target="#modalUsuario"
+                (click)="EditarUsuario(us)" ><i class="bi bi-pencil-square"></i>Editar</button>
+              <button class="btn btn-danger" (click)="EliminarUsuario(us)"> <i class="bi bi-trash-fill"></i> Eliminar </button>
             </td>
           </tr>
         </tbody>
@@ -78,20 +67,8 @@
           <app-cu-usuario [usuario]="usuarioselecionado"></app-cu-usuario>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancelar
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            (click)="guardarusuario()"
-          >
-            Guardar
-          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancelar</button>
+          <button type="button"class="btn btn-primary" (click)="guardarusuario()">Guardar</button>
         </div>
       </div>
     </div>
