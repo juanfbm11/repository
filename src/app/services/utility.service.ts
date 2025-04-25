@@ -1,11 +1,15 @@
 import { ElementRef, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Modal } from 'bootstrap'; // Asegúrate de que Bootstrap esté instalado y configurado correctamente
+import { Observable, Subject } from 'rxjs';
+import { Modal } from 'bootstrap'; 
+import { toasterModel } from '../models/core/toaster.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
+  private toasterSubject = new Subject<toasterModel>();
+
+  toaster$ = this.toasterSubject.asObservable();
 
   constructor() { }
 
@@ -29,5 +33,9 @@ export class UtilityService {
       document.body.removeAttribute('style');
       document.body.removeAttribute('class');
     }
+  }
+  showToaster(message:string, delay:number, type:'success'| 'danger' | 'warning' | 'info' | 'primary'){
+
+    this.toasterSubject.next({message, delay: (delay * 1000), type});
   }
 }

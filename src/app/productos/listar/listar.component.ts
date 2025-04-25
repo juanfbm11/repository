@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Producto } from '../../models/productos';
 import Swal from 'sweetalert2';
-import { Modal } from 'bootstrap';
+import { Modal, Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-listar-productos',
@@ -11,6 +11,7 @@ import { Modal } from 'bootstrap';
 })
 export class ListarComponent {
  @ViewChild('modalproducto') modal : ElementRef | undefined;
+ @ViewChild('liveToast') toaster: ElementRef | undefined;
   vectorproductos: Producto[] = [
     { id: 1, nombre: 'producto 1', precio: 1000, stock: 4 },
     { id: 12, nombre: 'producto 1', precio: 2000, stock: 5 },
@@ -62,6 +63,11 @@ export class ListarComponent {
       }
     });
   }
+    mostrarToast(){
+      let toaster = Toast.getOrCreateInstance(this.toaster?.nativeElement);
+      toaster?.show();
+    }
+    
   cerrarModal(modal : ElementRef | undefined){
     if(modal ){
       let btsModal = Modal.getInstance(modal.nativeElement);

@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
 import { Reserva } from '../../models/reservas';
 import Swal from 'sweetalert2';
-import { Modal } from 'bootstrap';
+import { Modal, Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-listar-reservas',
@@ -11,6 +11,8 @@ import { Modal } from 'bootstrap';
 })
 export class ListarComponent {
   @ViewChild('modalreserva') modal : ElementRef | undefined;
+  @ViewChild('liveToast') toaster: ElementRef | undefined;
+  
   Vectorreservas: Reserva[] = [
     { id: 1, nombre: 'cliente 1', fechaReserva: new Date(), total: 'numero 2' },
     { id: 2, nombre: 'cliente 2', fechaReserva: new Date(), total: 'numero 4' },
@@ -62,6 +64,11 @@ export class ListarComponent {
       }
     });
   }
+  mostrarToast(){
+    let toaster = Toast.getOrCreateInstance(this.toaster?.nativeElement);
+    toaster?.show();
+  } 
+
   cerrarModal(modal : ElementRef | undefined){
     if(modal){
       let btsModal = Modal.getInstance(modal.nativeElement);

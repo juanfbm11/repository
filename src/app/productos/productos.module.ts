@@ -12,7 +12,7 @@ const ROUTES: Routes = [
     component: ListarComponent,
   },
   {
-    path:'',
+    path:'articulo',
     component: ArticuloComponent,
   }
 ];

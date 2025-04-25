@@ -3,6 +3,7 @@ import { usuario } from '../../models/usuario';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../services/usuarios.service';
 import { UtilityService } from '../../services/utility.service';
+import { Toast } from 'bootstrap';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { UtilityService } from '../../services/utility.service';
 })
 export class ListarComponent {
   @ViewChild('modalUsuario') modal: ElementRef | undefined;
+ 
   Vectorusuarios: usuario[] = [];
 
   usuarioselecionado: usuario | undefined = undefined;
@@ -81,4 +83,8 @@ export class ListarComponent {
       }
     });
   }
+  mostrarToast(){
+   this._util.showToaster('mensaje de prueba', 2, 'danger');
+  }
+  
 }
