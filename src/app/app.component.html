@@ -1,5 +1,5 @@
 
-  <div class="container" *ngIf="!isloginRoute()">
+  <div class="container-fluid" *ngIf="!isloginRoute()">
     <app-header></app-header>
     <router-outlet />
     <app-footer></app-footer>
@@ -8,7 +8,8 @@
 
   <div *ngIf="isloginRoute()" >
     <router-outlet />
-  </div>
+  </div> 
+
 
   <div class="toast-container position-fixed bottom-0 end-0 p-3">    
     <div #toaster class="toast align-items-center {{toasterData?.type}} border-0" role="alert" aria-live="assertive" aria-atomic="true">
