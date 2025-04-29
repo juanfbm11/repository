@@ -31,13 +31,14 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path:'',
+    path:'home',
     component: HomeComponent
   },
   {
     path:'carrito',
     component: CarritoComponent
-  }
+  },
+  
 
 
 ];

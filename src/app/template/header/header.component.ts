@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   constructor(private router: Router) {}
+  
   goToListar() {
     this.router.navigate(['/usuarios']);
   }
@@ -17,5 +18,14 @@ export class HeaderComponent {
   }
   ircarrito(){
     this.router.navigate(['/carrito'])
+  }
+  home(){
+    this.router.navigate(['/home'])
+  }
+  articulo(){
+    this.router.navigate(['/productos/articulo'])
+  }
+  reservacion(){
+    this.router.navigate(['/reservas/reservacion'])
   }
 }

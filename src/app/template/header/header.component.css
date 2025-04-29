@@ -7,9 +7,9 @@ body {
 
 /* Logo y Encabezado */
 .logo {
-  width: 100px;
+  width: 150px;
   max-width: 150px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .logo-titulo {
@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .titulo {
