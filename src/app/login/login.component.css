@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: linear-gradient(135deg, #935116, #2575fc);
     font-family: 'Arial', sans-serif;
     margin: 0;
 }
@@ -66,7 +66,7 @@ input:focus {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%;
+    width: 90%;
     text-transform: uppercase;
     font-weight: bold;
 }
