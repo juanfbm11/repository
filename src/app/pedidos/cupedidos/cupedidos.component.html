@@ -1,0 +1,38 @@
+<form>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"
+      *ngIf="Pedidos"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="ingrese el nombre"
+      [(ngModel)]="Pedidos.nombre"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="fechaCompra" class="form-label"> Fecha Compra</label>
+    <input
+      class="form-control"
+      id="fechaCompra"
+      type="datetime-local"
+      *ngIf="Pedidos"
+      name="fechaCompra"
+      [ngModel]="formatDateTimeLocal(Pedidos!.fechaCompra)"
+      (ngModelChange)="updateDate($event)"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="total" class="form-control">Total</label>
+    <input
+      type="text"
+      *ngIf="Pedidos"
+      class="form-control"
+      id="total"
+      name="total"
+      placeholder="ingrese valor total"
+      [(ngModel)]="Pedidos.total"
+    />
+  </div>
+</form>

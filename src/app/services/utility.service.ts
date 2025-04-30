@@ -19,7 +19,13 @@ export class UtilityService {
       subs.next(rs);
       subs.complete();
     })
+  }
 
+  AbrirModal(modal : ElementRef | undefined){
+    if(modal){
+      let bsModal = Modal.getOrCreateInstance(modal.nativeElement);
+      bsModal.show();
+    }
   }
 
   cerrarModal(modal: ElementRef | undefined) {

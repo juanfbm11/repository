@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { CarritoComponent } from './pedidos/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,13 @@ const routes: Routes = [
     path: 'reservas',
     loadChildren: () =>
       import('./reservas/reservas.module').then(m => m.ReservasModule),
+  },  
+  {
+    path: 'pedidos',
+    loadChildren:()=>
+      import('./pedidos/pedidos.module').then(m => m.PedidosModule),    
   },
+  
   {
     path:'login',
     component: LoginComponent
@@ -27,7 +34,11 @@ const routes: Routes = [
     path:'',
     component: HomeComponent
   },
-  
+  {
+    path:'carrito',
+    component: CarritoComponent
+  }
+
 
 ];
 

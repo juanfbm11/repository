@@ -37,10 +37,12 @@ export class ListarComponent {
   }
   //no cierra bien la modal
   EditarUsuario(usuario: usuario) {
+    this._util.AbrirModal(this.modal);
     this.isNew = false;
     this.usuarioselecionado = usuario;
   }
   nuevousuario() {
+    this._util.AbrirModal(this.modal);
     this.isNew = true;
     this.usuarioselecionado = { id: 0, fechaRegistro: new Date(), nombre: '' };
   }
