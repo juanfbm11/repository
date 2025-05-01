@@ -4,14 +4,15 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #935116, #2575fc);
+    background: url('/assets/IMAGENES/backg.jpg') no-repeat center center;
+    background-size: cover;
     font-family: 'Arial', sans-serif;
     margin: 0;
 }
 
 /* Card styling */
 .login-card {
-    background: #ffffff;
+    background: black;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
@@ -23,7 +24,7 @@
 .login-card h2 {
     font-size: 24px;
     margin-bottom: 1rem;
-    color: #333333;
+    color: white;
 }
 
 /* Form elements styling */
@@ -35,7 +36,7 @@
 label {
     display: block;
     font-weight: bold;
-    color: #666666;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
@@ -49,7 +50,7 @@ input {
 }
 
 input:focus {
-    border-color: #2575fc;
+    border-color: #FF4500;
     outline: none;
     box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
 }
@@ -60,7 +61,7 @@ input:focus {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     color: #ffffff;
-    background-color: #2575fc;
+    background-color: #FF4500;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -72,7 +73,7 @@ input:focus {
 }
 
 .btn:hover {
-    background-color: #0058b0;
+    background-color: #FF4500;
 }
 
 /* Responsive Design */
@@ -81,3 +82,63 @@ input:focus {
         width: 90%;
     }
 }
+
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    justify-content:center;
+    margin: 1.5rem auto;  
+    margin-top: 2rem;     
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.remember-me label {
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer;
+    color: white;
+}
+
+
+.password-container {
+    position: relative;
+  }
+  
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: black;
+    align-items: center;
+    
+  }
+  
+  .toggle-password:hover {
+    color: black;
+  }
+  
+  #pwd {
+    padding-right: 30px; /* Espacio para el icono */
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+  }
+
+  #usr{
+    padding-right: 30px; /* Espacio para el icono */
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+  }
