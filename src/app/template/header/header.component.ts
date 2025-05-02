@@ -16,8 +16,8 @@ export class HeaderComponent {
   irlogin(){
     this.router.navigate(['/login'])
   }
-  ircarrito(){
-    this.router.navigate(['/carrito'])
+  ircart(){
+    this.router.navigate(['/cart'])
   }
   home(){
     this.router.navigate(['/home'])

@@ -35,7 +35,7 @@ export class ListarComponent {
       this.isloading = false;
     });
   }
-  //no cierra bien la modal
+  
   EditarUsuario(usuario: usuario) {
     this._util.AbrirModal(this.modal);
     this.isNew = false;

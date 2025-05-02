@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { UtilityService } from './services/utility.service';
 import { toasterModel } from './models/core/toaster.model';
@@ -31,7 +31,7 @@ export class AppComponent  implements OnInit {
     })
   }
   isloginRoute():boolean{
-    return (this.router.url ==='/login' || this.router.url=='/carrito');
+    return (this.router.url ==='/login' || this.router.url=='/cart');
   }
   title = 'PerritosCallejeros';
 }
