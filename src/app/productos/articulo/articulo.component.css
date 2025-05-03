@@ -1,0 +1,106 @@
+.productos {
+    padding: 40px 20px;
+    background-color: #0d0d0d;
+    color: #fff;
+  }
+  
+  .productos-titulo {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffcc00;
+  }
+  
+  
+  .productos-categoria {
+    margin-bottom: 40px;
+  }
+  
+  .categoria-titulo {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    font-weight: bold; /* Negrilla */
+  text-shadow: 2px 2px 4px rgba(7, 0, 0, 0.5); /* Sombra */
+  }
+  
+
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  
+  .producto-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  }
+  
+ 
+  .producto-img {
+    width: 100%;
+    height: 150px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+  }
+  
+ 
+  .producto-nombre {
+    font-size: 1.1rem;
+    margin: 15px 0 5px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+
+  }
+  
+  /* Precio */
+  .producto-precio {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+
+  .producto-boton {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .producto-boton:hover {
+    background-color: #ff9900;
+    transform: scale(1.05);
+  }
+  
+  .producto-boton:active {
+    transform: scale(0.98);
+  }
+
+  .producto-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+  }
