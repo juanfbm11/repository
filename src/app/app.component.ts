@@ -31,7 +31,7 @@ export class AppComponent  implements OnInit {
     })
   }
   isloginRoute():boolean{
-    return (this.router.url ==='/login' || this.router.url=='/cart');
+    return (this.router.url ==='/login' );
   }
   title = 'PerritosCallejeros';
 }
