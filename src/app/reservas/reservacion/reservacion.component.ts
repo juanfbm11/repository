@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservacion',
@@ -6,6 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './reservacion.component.html',
   styleUrl: './reservacion.component.css'
 })
-export class ReservacionComponent {
+export class ReservacionComponent 
+{
+  constructor(private router: Router) {}
+  irbookin(){
+    this.router.navigate(['/'])
+  }
+
+
+
+
+
 
 }
+
