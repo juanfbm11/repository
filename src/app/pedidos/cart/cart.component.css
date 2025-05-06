@@ -1,0 +1,71 @@
+.container-food {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    height: 350px;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .food-image {
+    width: px;
+    height: auto;
+    margin-right: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .details-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  }
+  
+  .details-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .quantity-label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .quantity-input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e60000;
+  }
+  .btn-pagar{    
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(226, 232, 226);
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    cursor: pointer;
+    box-shadow: #f0f0f0;
+    border-radius: 10px;    
+    margin: 20px auto; 
+  }
+  .btn-pagar:hover{
+    color: yellow;
+  }

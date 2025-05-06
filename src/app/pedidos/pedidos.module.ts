@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarritoComponent } from './carrito/carrito.component';
 import { ListarComponent } from './listar/listar.component';
 import {  RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CupedidosComponent } from './cupedidos/cupedidos.component';
+import { CartComponent } from './cart/cart.component';
 
 const ROUTES : Routes = [
   {
@@ -12,16 +12,17 @@ const ROUTES : Routes = [
     component:ListarComponent,
   },
   {
-    path:'carrito',
-    component: CarritoComponent
+    path:'cart',
+    component:CartComponent
   }
+ 
 ];
 
 @NgModule({
   declarations: [
-    CarritoComponent,
+    // carritoComponent,
     ListarComponent,    
-    CupedidosComponent
+    CupedidosComponent, CartComponent
   ],
   imports: [
     CommonModule,

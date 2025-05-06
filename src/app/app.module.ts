@@ -10,22 +10,27 @@ import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+
+
+
+
+
+
 @NgModule({
   declarations: [
-    AppComponent,   
+    AppComponent,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent,   
     LoginComponent,
     HomeComponent,
-   
-   
-
-  ],
+  
+  
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SweetAlert2Module.forRoot()   
+    SweetAlert2Module.forRoot(),
   ],
   providers: [
     provideHttpClient(), // Proporciona el cliente HTTP para realizar solicitudes HTTP

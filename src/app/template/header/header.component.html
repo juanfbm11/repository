@@ -1,38 +1,35 @@
-<header class="Encabezado">
-  <div class="logo-titulo">
-    <img class="logo" src="/assets/IMAGENES/Logo.png" alt="Logo" />
-    
-    <div class="botones-container">
-    <button class="Boton_Inicio" (click)="irlogin()">         
-          <span class="texto-iniciar-sesion"><i class="bi bi-person-fill-add">Iniciar Sesion</i></span>
-      </button> 
-      <button class="Boton_cart" (click)="ircarrito()">
-        <span class="texto-cart"><i class="bi bi-cart-check-fill">Carrito</i></span>        
-      </button>
-    </div>
+<header class="encabezado">
+  <div class="contenedor-header">
+    <img class="logo" src="/assets/IMAGENES/Logo.png" alt="Logo del negocio" />
     <h1 class="titulo">
       <span class="rojo">PERRITOS</span>
-      <span class="amarillo">CALLEJEROS</span><br />
+      <span class="amarillo">CALLEJEROS</span>
     </h1>
-    <br />
-    <ul class="MENU">
-      <li><a href="#"><b>INICIO</b></a></li>
-      <li class="menu-item">
-        <a href="#"><b>PRODUCTOS</b></a>
-        <ul class="submenu">
-          <li><a href="#">Hamburguesas</a></li>
-          <li><a href="#">Perros</a></li>
-        </ul>
-      </li>
-      <li><a href="#"><b>NOVEDADES</b></a></li>
-      <li> <a href="#"><b>RESERVAS</b></a></li>      
-      <li>
-        <form class="formulario">
-          <div class="buscar">
-            <input type="text" id="buscar" name="buscar" placeholder="BUSCAR" />
-          </div>
-        </form>
-      </li>
-    </ul>
+    <div class="botones">
+      <button class="Boton_Inicio" (click)="irlogin()"> 
+        <i class="bi bi-person-fill-add"></i> Iniciar Sesión
+      </button>
+      <button class="Boton_cart" (click)="ircart()">
+        <span class="texto-cart"><i class="bi bi-cart-check-fill">Carrito</i></span>
+      </button>
+    </div>
   </div>
 </header>
+
+<nav class="barra-navegacion">
+  <ul class="menu">
+    <li><a  (click)="home()"><b>INICIO</b></a></li>
+      <li class="menu-item">
+        <a (click)="articulo()"><b>PRODUCTOS</b></a>
+      
+
+    </li>
+    
+    <li> <a (click)="reservacion()"><b>RESERVAS</b></a></li>      
+    <li>
+      <form class="formulario-busqueda">
+        <input type="text" placeholder="Buscar..." />
+      </form>
+    </li>
+  </ul>
+</nav>
