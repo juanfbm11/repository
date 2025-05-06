@@ -1,1 +1,27 @@
-<p>reservas front</p>
+<section id="reserva">
+    <h2>Haz tu Reserva</h2>
+    <div class="reserva-container">
+      <div class="image-container">
+        <img src="reservas.jpg" alt="Imagen de Reserva" class="img-reserva">
+      </div>
+      <form action="" method="POST">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <div class="form-group">
+          <label for="hora">Hora</label>
+          <input type="time" id="hora" name="hora" required>
+        </div>
+        <div class="form-group">
+          <label for="personas">Número de Personas</label>
+          <input type="number" id="personas" name="personas" required>
+        </div>
+        <button type="submit" class="btn-submit">Reservar</button>
+      </form>
+    </div>
+  </section>
