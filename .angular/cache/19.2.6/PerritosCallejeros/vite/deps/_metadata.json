@@ -1,124 +1,73 @@
 {
-<<<<<<< Updated upstream
-  "hash": "04d701e2",
-  "configHash": "5f66f971",
+  "hash": "b422d2b6",
+  "configHash": "03b1f29c",
   "lockfileHash": "28ea9de4",
-  "browserHash": "768a0d3e",
-=======
-  "hash": "d2661802",
-  "configHash": "efcc36ef",
-  "lockfileHash": "28ea9de4",
-  "browserHash": "e62bc35c",
->>>>>>> Stashed changes
+  "browserHash": "c53cddd5",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-<<<<<<< Updated upstream
-      "fileHash": "cb11da56",
-=======
-      "fileHash": "428de850",
->>>>>>> Stashed changes
+      "fileHash": "bbe4233f",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-<<<<<<< Updated upstream
-      "fileHash": "86faeccb",
-=======
-      "fileHash": "924e205b",
->>>>>>> Stashed changes
+      "fileHash": "a3a4b3d9",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-<<<<<<< Updated upstream
-      "fileHash": "288d757b",
-=======
-      "fileHash": "a77415ac",
->>>>>>> Stashed changes
+      "fileHash": "068e53fc",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-<<<<<<< Updated upstream
-      "fileHash": "9420bbc0",
-=======
-      "fileHash": "fa494818",
->>>>>>> Stashed changes
+      "fileHash": "52c829d2",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-<<<<<<< Updated upstream
-      "fileHash": "c98037a5",
-=======
-      "fileHash": "53f8e039",
->>>>>>> Stashed changes
+      "fileHash": "abce0355",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-<<<<<<< Updated upstream
-      "fileHash": "23ea24bb",
-=======
-      "fileHash": "5b2fb19c",
->>>>>>> Stashed changes
+      "fileHash": "d02306e4",
       "needsInterop": false
     },
     "@sweetalert2/ngx-sweetalert2": {
       "src": "../../../../../../node_modules/@sweetalert2/ngx-sweetalert2/fesm2022/sweetalert2-ngx-sweetalert2.mjs",
       "file": "@sweetalert2_ngx-sweetalert2.js",
-<<<<<<< Updated upstream
-      "fileHash": "feb71a97",
-=======
-      "fileHash": "3a70d45b",
->>>>>>> Stashed changes
+      "fileHash": "123836da",
       "needsInterop": false
     },
     "bootstrap": {
       "src": "../../../../../../node_modules/bootstrap/dist/js/bootstrap.esm.js",
       "file": "bootstrap.js",
-<<<<<<< Updated upstream
-      "fileHash": "4b4a0f76",
-=======
-      "fileHash": "f6d5d09f",
->>>>>>> Stashed changes
+      "fileHash": "825ddd60",
       "needsInterop": false
     },
     "date-fns-tz": {
       "src": "../../../../../../node_modules/date-fns-tz/dist/esm/index.js",
       "file": "date-fns-tz.js",
-<<<<<<< Updated upstream
-      "fileHash": "eb8e6648",
-=======
-      "fileHash": "5a49a9d6",
->>>>>>> Stashed changes
+      "fileHash": "6faba81c",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-<<<<<<< Updated upstream
-      "fileHash": "810eff6c",
-=======
-      "fileHash": "22f8540e",
->>>>>>> Stashed changes
+      "fileHash": "79eef388",
       "needsInterop": false
     },
     "sweetalert2": {
       "src": "../../../../../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js",
       "file": "sweetalert2.js",
-<<<<<<< Updated upstream
-      "fileHash": "6da6ca29",
-=======
-      "fileHash": "4c6233c3",
->>>>>>> Stashed changes
+      "fileHash": "3f4e0408",
       "needsInterop": false
     }
   },

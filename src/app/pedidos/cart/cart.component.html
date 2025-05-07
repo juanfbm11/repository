@@ -1,36 +1,98 @@
-<div class="container">   
-    <h1>TU PEDIDO</h1><br>
-    <p>Los artículos en tu pedido van estar preparados. 
-        Termina el proceso de compra ahora para poder entregartelos.</p>
-    <button class="btn btn-danger" ><i class="bi bi-box-arrow-left"></i>Continuar Comprando</button>
-    <div class="container-food">
-        <img class="food-image" src="assets/IMAGENES/Hamburguesa 2.png" alt="Hamburguesa">
-        <div class="details-container">
-          <div class="details-title">Hamburguesa</div>
-          <div class="details-info">Carne,Ensalada,Papitas</div>
-          <div class="details-info">Refresco: Coca Cola</div>
-          <div class="quantity-container">
-            <label class="quantity-label">Cantidad:</label>
-            <input class="quantity-input" type="number" value="1">
-          </div>
-          <div class="precio">$30.000,00</div>
-          
-        </div>
-      </div>
-      <div class="container-food">
-        <img class="food-image" src="assets/IMAGENES/Hamburguesa 3.png" alt="Hamburguesa">
-        <div class="details-container">
-          <div class="details-title">Hamburguesa</div>
-          <div class="details-info">Carne,Ensalada,Tocineta</div>
-          <div class="details-info">Refresco: Coca Cola</div>
-          <div class="quantity-container">
-            <label class="quantity-label">Cantidad:</label>
-            <input class="quantity-input" type="number" value="1">
-          </div>
-          <div class="precio">$25.500,00</div>
-          
-        </div>
-      </div>
-      <button class="btn-pagar "><i class="bi bi-credit-card-2-back-fill"></i>PAGAR</button>
-</div>
+<br><br>
+<div class="contenedor-carrito">
+  <!-- Sección de productos -->
+  <div class="productos">
+    <h2 class=""> Carrito de Compras</h2>
 
+    <div class="producto">
+      <img
+          src="/assets/IMAGENES/Productos-Hamburguesa Clasica.jpeg" alt="Hamburguesa">
+      <div class="detalles-producto">
+        <p class="nombre-producto">Hamburguesa</p>
+        <p class="precio-producto">$12.000</p>
+        <select class="cantidad">
+          <option>1 unidad</option>
+          <option>2 unidades</option>
+          <option>3 unidades</option>
+          <option>4 unidades</option>
+          <option>5 unidades</option>
+        
+        </select>
+      </div>
+    </div>
+
+    <div class="producto">
+      <img
+          src="/assets/IMAGENES/Productos-Perro caliente clasico.jpg" alt="Perrito">
+      <div class="detalles-producto">
+        <p class="nombre-producto">Perrito</p>
+        <p class="precio-producto">$7.000</p>
+        <select class="cantidad">
+          <option>1 unidad</option>
+          <option>2 unidades</option>
+          <option>3 unidades</option>
+          <option>4 unidades</option>
+          <option>5 unidades</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="resumen-compra">
+      <p>Subtotal: <span>$19.000</span></p>
+      <p>Envío: <span>Gratis</span></p>
+      <br>
+      <p class="total">Total: <span>$19.000</span></p>
+    </div>
+    <br><br><br>
+    <div class="boton-seguir-comprando">
+      <a routerLink="/productos/articulo" class="btn-seguir">
+        Seguir comprando
+      </a>
+    </div>
+
+  </div>
+
+
+  
+  
+  <!-- Sección de pago -->
+  <div class="formulario-pago">
+    <h2 class=""> Información de Pago</h2>
+
+    <form>
+      <input type="email" placeholder="Correo electrónico">
+      <input type="text" placeholder="Nombre completo">
+      <select>
+        <option>Ciudad</option>
+        <option>Medellín</option>
+        <option>Itagüí</option>
+        <option>Caldas</option>
+        <option>Estrella</option>
+        <option>Envigado</option>
+        <option>Poblado</option>
+        <option>Girardota</option>
+      </select>
+      <input type="text" placeholder="Dirección">
+
+      <h4>Tipo de Envío</h4>
+      <label><input type="radio" name="envio" checked> Envío Gratis</label>
+      <label><input type="radio" name="envio"> Envío Rápido  $4.000</label>
+      <br><br><br>
+      <h4>Método de Pago</h4>
+      <div class="metodos-pago">
+        <button type="button">TARJETA</button>
+        <button type="button">PSE</button>
+        <button type="button">BANCO</button>
+      </div>
+
+      <input type="text" placeholder="Número de Tarjeta">
+      <input type="text" placeholder="MM/AA">
+      <input type="text" placeholder="CVC">
+
+     
+
+      <button type="submit" class="boton-pagar">Pagar</button>
+    </form>
+  </div>
+</div>

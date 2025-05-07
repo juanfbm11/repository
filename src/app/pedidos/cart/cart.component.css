@@ -1,71 +1,149 @@
-.container-food {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    height: 350px;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .food-image {
-    width: px;
-    height: auto;
-    margin-right: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .details-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
-  }
-  
-  .details-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .details-info {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .quantity-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .quantity-label {
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .quantity-input {
-    width: 50px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .precio {
-    font-size: 24px;
-    font-weight: bold;
-    color: #e60000;
-  }
-  .btn-pagar{    
-    font-weight: bold;
-    font-size: 16px;
-    color: rgb(226, 232, 226);
-    background-color: rgb(255, 0, 0);
-    display: flex;
-    cursor: pointer;
-    box-shadow: #f0f0f0;
-    border-radius: 10px;    
-    margin: 20px auto; 
-  }
-  .btn-pagar:hover{
-    color: yellow;
-  }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 2rem;
+}
+
+.contenedor-carrito {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.productos, .formulario-pago {
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+}
+
+.producto {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+}
+
+.producto img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.detalles-producto {
+  flex: 1;
+}
+
+.nombre-producto {
+  font-weight: 700;
+  margin: 0;
+}
+
+.precio-producto {
+  color: #000000;
+  margin: 0.9rem 0;
+}
+
+.cantidad {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.boton-seguir-comprando {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.btn-seguir {
+  background-color: #ffa500;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-seguir:hover {
+  background-color: #ff8c00;
+}
+
+
+
+.resumen-compra {
+  margin-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.resumen-compra p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem 0;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.metodos-pago {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.metodos-pago button {
+  flex: 1;
+  padding: 0.6rem;
+  background-color: #e9ecef;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.metodos-pago button:hover {
+  background-color: #dee2e6;
+}
+
+.checkbox {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.boton-pagar {
+  width: 100%;
+  padding: 1rem;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.boton-pagar:hover {
+  background-color: #218838;
+}
