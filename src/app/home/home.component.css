@@ -2,17 +2,21 @@
 
 section{
     background-color: black;
+    font-family: poppins, sans-serif;
 }
 
 .Cuerpo {
     background-color: black;
+   
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 20px;
     padding: 20px;
     flex-wrap: wrap;
+    
 }
+
 
 .producto {
     position: relative;
@@ -28,14 +32,14 @@ section{
 }
 
 .producto:hover {
-    transform: scale(1.05); 
-}
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(238, 255, 2, 0.404);
+  }
 
 .producto img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0; 
+  width: 115%;
+  border-radius: 12px;
+  height: auto;
 }
 
 .producto h3 {
@@ -45,9 +49,9 @@ section{
 }
 
 .producto p {
-    font-size: 1.2em; 
-    color: white;
-    margin: 5px 0 15px;
+  color: #ccc;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
 .informacion {
@@ -78,6 +82,10 @@ section{
     margin-top: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+  .producto:nth-child(3) .boton-compra {
+    background-color: #2a9d8f;
+  }
 
 .boton-compra:hover {
     background-color: darkred;
@@ -119,7 +127,8 @@ section{
    
 }
 
-
-
-
-
+@media (max-width: 768px) {
+    .Cuerpo {
+      flex-direction: column;
+      align-items: center;
+    }
