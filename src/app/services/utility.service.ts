@@ -2,12 +2,15 @@ import { ElementRef, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Modal } from 'bootstrap'; 
 import { toasterModel } from '../models/core/toaster.model';
+import { usuario } from '../models/usuario';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
   private toasterSubject = new Subject<toasterModel>();
+  private sessionKey = "UsuarioSession ";
 
   toaster$ = this.toasterSubject.asObservable();
 
@@ -16,9 +19,38 @@ export class UtilityService {
   login(usr:string,pwd:string): Observable<boolean>{
     return new Observable(subs => {
       let rs = usr == 'admin' && pwd == 'admin';
+      this.setSession(this.sessionKey,{id:1, nombre:" juan",fechaRegistro:new Date()})
       subs.next(rs);
       subs.complete();
     })
+  }
+
+  getCurrentUser(): usuario | undefined {
+    return this.getSession <usuario>(this.sessionKey);
+  }
+
+  logout(){
+    this.setSession(this.sessionKey, undefined);
+  }
+
+  isloggedIn(): boolean{
+    let usr = this.getSession(this.sessionKey);
+    return (usr!= undefined);
+  }
+
+  getSession<T>(key:string){
+    let obj = sessionStorage.getItem(btoa(key));
+    if(obj)
+      return JSON.parse(atob(obj)) as T;
+    else
+    return undefined;
+  }
+
+  setSession(key:string, value:any){
+    if(value)
+      sessionStorage.setItem(btoa(key), btoa(JSON.stringify(value)));
+    else
+    sessionStorage.removeItem(key);
   }
 
   AbrirModal(modal : ElementRef | undefined){

@@ -88,7 +88,7 @@ export class ListarComponent {
     });
   }
   mostrarToast(){
-   this._util.showToaster('mensaje de prueba', 2, 'danger');
+   this._util.showToaster('usuario guardado exitosamente', 2, 'danger');
   }
   
 }

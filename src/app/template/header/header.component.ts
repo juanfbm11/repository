@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { usuario } from '../../models/usuario';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,15 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  currenUsuario:  usuario | undefined;
+
+  constructor(private router: Router, private util: UtilityService) {
+    if(util.isloggedIn())
+    this.currenUsuario= this.util.getCurrentUser();
+    else
+    this.router.navigate(['/login'])
+  }
+  
   
   goToListar() {
     this.router.navigate(['/usuarios']);
@@ -28,4 +38,5 @@ export class HeaderComponent {
   reservacion(){
     this.router.navigate(['/reservas/reservacion'])
   }
+
 }
