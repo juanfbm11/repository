@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Producto } from '../../models/productos';
 import Swal from 'sweetalert2';
 import { Modal, Toast } from 'bootstrap';
+import { ProductosService } from '../../services/productos.service';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-listar-productos',
@@ -12,12 +14,31 @@ import { Modal, Toast } from 'bootstrap';
 export class ListarComponent {
  @ViewChild('modalproducto') modal : ElementRef | undefined;
  @ViewChild('liveToast') toaster: ElementRef | undefined;
-  vectorproductos: Producto[] = [
-    { id: 1, nombre: 'producto 1', precio: 1000, stock: 4 },
-    { id: 12, nombre: 'producto 1', precio: 2000, stock: 5 },
+  
+ vectorproductos: Producto[] = [
+    // { id: 1, nombre: 'producto 1', precio: 1000, stock: 4 },
+    // { id: 12, nombre: 'producto 1', precio: 2000, stock: 5 },
   ];
   productoselecionado: Producto | undefined = undefined;
   isNew : boolean = false;
+  isloading = true;
+
+  constructor (
+    private _productoService: ProductosService,
+    private _util: UtilityService
+  ){
+
+  }
+
+  loadProducto(){
+    this.isloading = true
+   this._productoService.getproducto()
+   .subscribe((rs) =>{
+    this.vectorproductos =rs;
+    this.isloading = false;
+    
+   });
+  }
 
   Editarproducto(producto: Producto) {
     this.isNew = false;
@@ -31,10 +52,10 @@ export class ListarComponent {
     if (this.isNew) {
       this.vectorproductos.push(this.productoselecionado!);
       this.productoselecionado = undefined;
-      this.cerrarModal(this.modal);
+      this._util.cerrarModal(this.modal);
     } else {
       this.productoselecionado = undefined;
-      this.cerrarModal(this.modal);
+      this._util.cerrarModal(this.modal);
     }
     Swal.fire({title:' Guardado correctamente', icon:'success'});
   }
@@ -68,18 +89,18 @@ export class ListarComponent {
       toaster?.show();
     }
     
-  cerrarModal(modal : ElementRef | undefined){
-    if(modal ){
-      let btsModal = Modal.getInstance(modal.nativeElement);
-      btsModal?.hide();
-      let backdrop = document.querySelector('.modal-backdrop.fade.show');
-      if(backdrop){
-        backdrop.parentNode?.removeChild(backdrop);
-      }
-      document.body.removeAttribute('style');
-      document.body.removeAttribute('class');
-    }
-  }
+  // cerrarModal(modal : ElementRef | undefined){
+  //   if(modal ){
+  //     let btsModal = Modal.getInstance(modal.nativeElement);
+  //     btsModal?.hide();
+  //     let backdrop = document.querySelector('.modal-backdrop.fade.show');
+  //     if(backdrop){
+  //       backdrop.parentNode?.removeChild(backdrop);
+  //     }
+  //     document.body.removeAttribute('style');
+  //     document.body.removeAttribute('class');
+  //   }
+  // }
 
   }
 

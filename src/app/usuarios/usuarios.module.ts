@@ -24,6 +24,6 @@ const ROUTES: Routes = [
     CommonModule, 
     RouterModule.forChild(ROUTES), 
     FormsModule],
-  providers:[UsuarioService]
+ 
 })
 export class UsuariosModule {}

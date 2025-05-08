@@ -15,22 +15,24 @@ import { Toast } from 'bootstrap';
 export class ListarComponent {
   @ViewChild('modalUsuario') modal: ElementRef | undefined;
  
-  Vectorusuarios: usuario[] = [];
+  Vectorusuarios: usuario[] = [
+    // {id:1, nombre:"juan", fechaRegistro:new Date()},
+    // {id:2, nombre:"esteban", fechaRegistro:new Date()},
+    // {id:3, nombre:"ana", fechaRegistro:new Date() } 
+  ];
 
   usuarioselecionado: usuario | undefined = undefined;
   isNew: boolean = false;
   isloading = true;
 
-  constructor(
-    private _usuarioService: UsuarioService,
-    private _util: UtilityService
-  ) {
-    this.Loadusuario();
+  constructor(private _usuarioService: UsuarioService, private _util: UtilityService){ 
+    this.LoadUsuarios();
   }
 
-  Loadusuario() {
+  LoadUsuarios() {
     this.isloading = true;
-    this._usuarioService.getusuario().subscribe((rs) => {
+    this._usuarioService.getusuario()
+    .subscribe((rs) => {
       this.Vectorusuarios = rs;
       this.isloading = false;
     });

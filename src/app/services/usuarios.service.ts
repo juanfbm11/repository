@@ -5,16 +5,16 @@ import { usuario } from '../models/usuario';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+   providedIn: 'root',
 })
 export class UsuarioService {
-  apiBase='';
+  apiBase = '';
 
-  constructor(private _http:HttpClient) { 
-    this.apiBase = environment.urlApiBase + 'usuario';
+  constructor(private _http: HttpClient) {
+    this.apiBase = environment.urlApiBase + 'usuarios';
   }
 
-  getusuario():Observable<usuario[]>{
-    return this._http.get<usuario[]>(this.apiBase +'/');
+  getusuario(): Observable<usuario[]> {
+    return this._http.get<usuario[]>(this.apiBase + '/');
   }
 }
