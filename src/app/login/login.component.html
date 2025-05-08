@@ -2,22 +2,24 @@
 
     <div class="login-card">
         <h2>Iniciar sesión</h2>
+        <br>
+        
         <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
             <div class="form group">
                 <label for="usr">Usuario</label>
                 <input type="text" id="usr" name="usr" required [(ngModel)]="usr">
             </div>   
             <br>         
-            <div class="form group password-container">
-                <div class="form group">
-                    <label for="pwd">Contraseña</label>
-                    <input [type]="showPassword ? 'text' : 'password'" id="pwd" name="pwd" required [(ngModel)]="pwd">
-                    <span class="toggle-password" (click)="togglePasswordVisibility()">
-                        <i class="material-icons">{{ showPassword ? 'visibility' : 'visibility_off' }}</i>
-                    </span>
+            <div class="form-group password-container">
+                <label for="pwd">Contraseña</label>
+                <div class="input-with-icon">
+                  <input [type]="showPassword ? 'text' : 'password'" id="pwd" name="pwd" required [(ngModel)]="pwd" placeholder="Tu contraseña">
+                  <span class="toggle-password" (click)="togglePasswordVisibility()">
+                    <i class="material-icons">{{ showPassword ? 'visibility' : 'visibility_off' }}</i>
+                  </span>
                 </div>
-            </div>
-
+              </div>
+<br>
                 <div class="remember-me">
                     <input type="checkbox" id="remember" name="remember" [(ngModel)]="rememberMe">
                     <label for="remember">Recuérdame</label>
