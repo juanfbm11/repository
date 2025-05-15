@@ -49,7 +49,7 @@ export class UtilityService {
 
   setSession(key: string, value: any) {
     if (value) localStorage.setItem(btoa(key), btoa(JSON.stringify(value)));
-    else localStorage.removeItem(key);
+    else localStorage.removeItem(btoa(key));
   }
 
   AbrirModal(modal: ElementRef | undefined) {

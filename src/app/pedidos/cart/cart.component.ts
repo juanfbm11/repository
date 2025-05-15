@@ -33,6 +33,7 @@ export class CartComponent {
 
   eleminar(){
     this._util.setSession('carrito' , undefined);
+    this.router.navigate(['/productos/articulo']);
   }
 
   totales() {
@@ -45,7 +46,7 @@ export class CartComponent {
       this.total +=  j.precio; ///add a total otros costos aca iria el iva
     })
   }
-  
+
   setCantidad($event: any, p: Producto) {
     p.cantidad = $event;
     this.totales()
