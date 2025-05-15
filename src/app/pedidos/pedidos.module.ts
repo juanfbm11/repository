@@ -19,10 +19,10 @@ const ROUTES : Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    // carritoComponent,
+  declarations: [    
     ListarComponent,    
-    CupedidosComponent, CartComponent
+    CupedidosComponent, 
+    CartComponent
   ],
   imports: [
     CommonModule,

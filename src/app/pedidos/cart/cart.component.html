@@ -1,68 +1,49 @@
-<br><br>
+<br /><br />
 <div class="contenedor-carrito">
   <!-- Sección de productos -->
   <div class="productos">
-    <h2 class=""> Carrito de Compras</h2>
-
-    <div class="producto">
-      <img
-          src="/assets/IMAGENES/Productos-Hamburguesa Clasica.jpeg" alt="Hamburguesa">
+    <h2 class="">Carrito de Compras</h2>
+    <div class="producto" *ngFor="let l of carrito">
+      <img src="/assets/IMAGENES/{{ l.image }}" alt="{{ l.nombre }}" />
       <div class="detalles-producto">
-        <p class="nombre-producto">Hamburguesa</p>
-        <p class="precio-producto">$12.000</p>
-        <select class="cantidad">
-          <option>1 unidad</option>
-          <option>2 unidades</option>
-          <option>3 unidades</option>
-          <option>4 unidades</option>
-          <option>5 unidades</option>
-        
+        <p class="nombre-producto">{{ l.nombre }}</p>
+        <p class="precio-producto">💲{{ l.precio }}</p>
+        <select
+          class="cantidad"
+          [ngModel]="l.cantidad"
+          (ngModelChange)="setCantidad($event, l)"
+        >
+          <option value="1">1 unidad</option>
+          <option value="2">2 unidades</option>
+          <option value="3">3 unidades</option>
+          <option value="4">4 unidades</option>
+          <option value="5">5 unidades</option>
         </select>
       </div>
     </div>
-
-    <div class="producto">
-      <img
-          src="/assets/IMAGENES/Productos-Perro caliente clasico.jpg" alt="Perrito">
-      <div class="detalles-producto">
-        <p class="nombre-producto">Perrito</p>
-        <p class="precio-producto">$7.000</p>
-        <select class="cantidad">
-          <option>1 unidad</option>
-          <option>2 unidades</option>
-          <option>3 unidades</option>
-          <option>4 unidades</option>
-          <option>5 unidades</option>
-        </select>
-      </div>
-    </div>
-
 
     <div class="resumen-compra">
-      <p>Subtotal: <span>$19.000</span></p>
       <p>Envío: <span>Gratis</span></p>
-      <br>
-      <p class="total">Total: <span>$19.000</span></p>
+      
+      <p>Subtotal: <span>💲{{ subtotal }} </span></p><br/>
+      <p class="total">Total: <span>💲{{total}} </span></p>
     </div>
-    <br><br><br>
+    <br /><br /><br />
     <div class="boton-seguir-comprando">
-      <a routerLink="/productos/articulo" class="btn-seguir">
-        Seguir comprando
-      </a>
+      <a class="btn-seguir" (click)="atproducto()"> Seguir comprando</a>
     </div>
-
+    <div class="boton-salir" (click)="eleminar()">
+      <a class="btn-salir">limpiar datos</a>
+    </div>
   </div>
 
-
-  
-  
   <!-- Sección de pago -->
   <div class="formulario-pago">
-    <h2 class=""> Información de Pago</h2>
+    <h2 class="">Información de Pago</h2>
 
     <form>
-      <input type="email" placeholder="Correo electrónico">
-      <input type="text" placeholder="Nombre completo">
+      <input type="email" placeholder="Correo electrónico" />
+      <input type="text" placeholder="Nombre completo" />
       <select>
         <option>Ciudad</option>
         <option>Medellín</option>
@@ -71,14 +52,13 @@
         <option>Estrella</option>
         <option>Envigado</option>
         <option>Poblado</option>
-        <option>Girardota</option>
       </select>
-      <input type="text" placeholder="Dirección">
+      <input type="text" placeholder="Dirección" />
 
       <h4>Tipo de Envío</h4>
-      <label><input type="radio" name="envio" checked> Envío Gratis</label>
-      <label><input type="radio" name="envio"> Envío Rápido  $4.000</label>
-      <br><br><br>
+      <label><input type="radio" name="envio" checked /> Envío Gratis</label>
+      <label><input type="radio" name="envio" /> Envío Rápido $4.000</label>
+      <br /><br /><br />
       <h4>Método de Pago</h4>
       <div class="metodos-pago">
         <button type="button">TARJETA</button>
@@ -86,11 +66,9 @@
         <button type="button">BANCO</button>
       </div>
 
-      <input type="text" placeholder="Número de Tarjeta">
-      <input type="text" placeholder="MM/AA">
-      <input type="text" placeholder="CVC">
-
-     
+      <input type="text" placeholder="Número de Tarjeta" />
+      <input type="text" placeholder="MM/AA" />
+      <input type="text" placeholder="CVC" />
 
       <button type="submit" class="boton-pagar">Pagar</button>
     </form>

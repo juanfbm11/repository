@@ -5,25 +5,11 @@
   <div class="productos-categoria">
     <h3 class="categoria-titulo">🍔 Hamburguesas</h3>
     <div class="productos-grid">
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Hamburguesa Clasica.jpeg" alt="Hamburguesa Clásica" class="producto-img" />
-        <h3 class="producto-nombre">CLÁSICA</h3>
-        <p class="producto-precio">💲12.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Hamburguesa BBQ.jpeg" alt="Hamburguesa BBQ" class="producto-img" />
-        <h3 class="producto-nombre">BBQ</h3>
-        <p class="producto-precio">💲15.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Hamburguesa Doble carne.jpeg" alt="Hamburguesa Doble Carne" class="producto-img" />
-        <h3 class="producto-nombre">DOBLE CARNE</h3>
-        <p class="producto-precio">💲18.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
+      <div class="producto-card" *ngFor="let h of hamburguesas">
+        <img src="/assets/IMAGENES/{{h.image}}" alt="{{h.nombre}}" class="producto-img" />
+        <h3 class="producto-nombre">{{h.nombre}}</h3>
+        <p class="producto-precio">💲{{h.precio}}</p>
+        <button class="producto-boton" (click)="addCart(h)">🛒 Agregar</button>
       </div>
     </div>
   </div>
@@ -32,60 +18,29 @@
   <div class="productos-categoria">
     <h3 class="categoria-titulo">🌭 Perros Calientes</h3>
     <div class="productos-grid">
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Perro caliente clasico.jpg" alt="Perro Clásico" class="producto-img" />
-        <h3 class="producto-nombre">Perro Clásico</h3>
-        <p class="producto-precio">💲7.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
+      <div class="producto-card" *ngFor="let p of perros">
+        <img src="/assets/IMAGENES/{{p.image}}" alt="{{p.nombre}}" class="producto-img" />
+        <h3 class="producto-nombre">{{p.nombre}}</h3>
+        <p class="producto-precio">💲{{p.precio}}</p>
+       <button class="producto-boton" (click)="addCart(p)" >🛒 Agregar </button>
       </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Perro caliente Quesudo.jpg" alt="Perro Quesudo" class="producto-img" />
-        <h3 class="producto-nombre">Perro Quesudo</h3>
-        <p class="producto-precio">💲10.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Perra especial.jpg" alt="Perro Especial" class="producto-img" />
-        <h3 class="producto-nombre">Perra Especial</h3>
-        <p class="producto-precio">💲14.000</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-    </div>
-  </div>
+       </div>
+</div>
+    
 
   <!-- Categoría Bebidas -->
   <div class="productos-categoria">
-    <h3 class="categoria-titulo">🥤 Bebidas</h3>
+    <h3 class="categoria-titulo">🥤Bebidas</h3>
     <div class="productos-grid">
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Bebidas.jpg" alt="Gaseosa" class="producto-img" />
-        <h3 class="producto-nombre">Gaseosa</h3>
-        <p class="producto-precio">💲3.500</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Cervezas.jpg" alt="Cerveza" class="producto-img" />
-        <h3 class="producto-nombre">Cerveza</h3>
-        <p class="producto-precio">💲4.500</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Aguas.jpg" alt="Agua" class="producto-img" />
-        <h3 class="producto-nombre">Agua</h3>
-        <p class="producto-precio">💲1.500</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
-      </div>
-
-      <div class="producto-card">
-        <img src="/assets/IMAGENES/Productos-Jugos.jpg" alt="Jugos" class="producto-img" />
-        <h3 class="producto-nombre">Jugos</h3>
-        <p class="producto-precio">💲3.500</p>
-        <a routerLink="/cart"><button class="producto-boton">🛒 Comprar</button></a>
+      <div class="producto-card" *ngFor="let b of bebidas">
+        <img src="/assets/IMAGENES/{{b.image}}" alt="{{b.nombre}}" class="producto-img" />
+        <h3 class="producto-nombre"> {{b.nombre}}</h3>
+        <p class="producto-precio">💲{{b.precio}}</p>
+       <button class="producto-boton" (click)="addCart(b)">🛒 Agregar</button>
       </div>
     </div>
   </div>
 </section>
+
+
+  

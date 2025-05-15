@@ -70,6 +70,7 @@ body {
   color: white;
   padding: 10px 20px;
   text-decoration: none;
+  cursor: pointer;
   border-radius: 8px;
   font-size: 16px;
   display: inline-block;
@@ -77,6 +78,22 @@ body {
 }
 
 .btn-seguir:hover {
+  background-color: #ff8c00;
+}
+
+.btn-salir {
+  background-color: #ffa500;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-salir:hover {
   background-color: #ff8c00;
 }
 

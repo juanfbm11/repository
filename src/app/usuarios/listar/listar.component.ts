@@ -13,13 +13,9 @@ import { Toast } from 'bootstrap';
   styleUrl:'./listar.component.css',
 })
 export class ListarComponent {
-  @ViewChild('modalUsuario') modal: ElementRef | undefined;
+  @ViewChild('modalUsuariodata') modal: ElementRef | undefined;
  
-  Vectorusuarios: usuario[] = [
-    // {id:1, nombre:"juan", fechaRegistro:new Date()},
-    // {id:2, nombre:"esteban", fechaRegistro:new Date()},
-    // {id:3, nombre:"ana", fechaRegistro:new Date() } 
-  ];
+  Vectorusuarios: usuario[] = [];
 
   usuarioselecionado: usuario | undefined = undefined;
   isNew: boolean = false;
@@ -51,11 +47,10 @@ export class ListarComponent {
  
   guardarusuario() {
     if (this.isNew) {
-      this.Vectorusuarios.push(this.usuarioselecionado!); //equivalente a una llamar una api por post
-      this.usuarioselecionado = undefined;
+      this.Vectorusuarios.push(this.usuarioselecionado!); 
+       this.usuarioselecionado = undefined;
       this._util.cerrarModal(this.modal);
-    } else {
-      //llamada a la api put
+    } else {      
       this.usuarioselecionado = undefined;
       this._util.cerrarModal(this.modal);
     }
@@ -78,8 +73,7 @@ export class ListarComponent {
         confirmButton: 'btn btn-danger',
       },
     }).then((rs) => {
-      if (rs.isConfirmed) {
-        //llamada a la api delete
+      if (rs.isConfirmed) {       
         Swal.fire({
           title: 'Usuario eliminado correctamente',
           icon: 'success',

@@ -1,60 +1,59 @@
 import { ElementRef, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Modal } from 'bootstrap'; 
+import { Modal } from 'bootstrap';
 import { toasterModel } from '../models/core/toaster.model';
 import { usuario } from '../models/usuario';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilityService {
   private toasterSubject = new Subject<toasterModel>();
-  private sessionKey = "UsuarioSession ";
+  private sessionKey = 'UsuarioSession ';
 
   toaster$ = this.toasterSubject.asObservable();
 
-  constructor() { }
+  constructor() {}
 
-  login(usr:string,pwd:string): Observable<boolean>{
-    return new Observable(subs => {
-      let rs = usr == 'admin' && pwd == 'admin';
-      this.setSession(this.sessionKey,{id:1, nombre:" juan",fechaRegistro:new Date()})
+  login(usr: string, pwd: string): Observable<boolean> {
+    return new Observable((subs) => {
+      let rs = usr == 'admin' && pwd == '1234';
+      this.setSession(this.sessionKey, {
+        id: 1,
+        nombre: ' juan',
+        fechaRegistro: new Date(),
+      });
       subs.next(rs);
       subs.complete();
-    })
+    });
   }
 
   getCurrentUser(): usuario | undefined {
-    return this.getSession <usuario>(this.sessionKey);
+    return this.getSession<usuario>(this.sessionKey);
   }
 
-  logout(){
+  logout() {
     this.setSession(this.sessionKey, undefined);
   }
 
-  isloggedIn(): boolean{
+  isloggedIn(): boolean {
     let usr = this.getSession(this.sessionKey);
-    return (usr!= undefined);
+    return usr != undefined;
   }
 
-  getSession<T>(key:string){
-    let obj = sessionStorage.getItem(btoa(key));
-    if(obj)
-      return JSON.parse(atob(obj)) as T;
-    else
-    return undefined;
+  getSession<T>(key: string) {
+    let obj = localStorage.getItem(btoa(key));
+    if (obj) return JSON.parse(atob(obj)) as T;
+    else return undefined;
   }
 
-  setSession(key:string, value:any){
-    if(value)
-      sessionStorage.setItem(btoa(key), btoa(JSON.stringify(value)));
-    else
-    sessionStorage.removeItem(key);
+  setSession(key: string, value: any) {
+    if (value) localStorage.setItem(btoa(key), btoa(JSON.stringify(value)));
+    else localStorage.removeItem(key);
   }
 
-  AbrirModal(modal : ElementRef | undefined){
-    if(modal){
+  AbrirModal(modal: ElementRef | undefined) {
+    if (modal) {
       let bsModal = Modal.getOrCreateInstance(modal.nativeElement);
       bsModal.show();
     }
@@ -72,8 +71,11 @@ export class UtilityService {
       document.body.removeAttribute('class');
     }
   }
-  showToaster(message:string, delay:number, type:'success'| 'danger' | 'warning' | 'info' | 'primary'){
-
-    this.toasterSubject.next({message, delay: (delay * 1000), type});
+  showToaster(
+    message: string,
+    delay: number,
+    type: 'success' | 'danger' | 'warning' | 'info' | 'primary'
+  ) {
+    this.toasterSubject.next({ message, delay: delay * 1000, type });
   }
 }
