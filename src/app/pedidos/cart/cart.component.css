@@ -59,14 +59,19 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-
+.botones-acciones{
+  display: flex;
+  gap: 1rem; 
+  margin-top: 20px;
+  justify-content: flex-start;
+}
 .boton-seguir-comprando {
   margin-top: 20px;
   text-align: left;
 }
 
 .btn-seguir {
-  background-color: #ffa500;
+  background-color: #ffa500; /* naranja */
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -78,11 +83,11 @@ body {
 }
 
 .btn-seguir:hover {
-  background-color: #ff8c00;
+  background-color: #ff8c00; /* naranja oscuro */
 }
 
 .btn-salir {
-  background-color: #ffa500;
+  background-color: #dc3545; /* rojo */
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -94,9 +99,8 @@ body {
 }
 
 .btn-salir:hover {
-  background-color: #ff8c00;
+  background-color: #b02a37; /* rojo oscuro */
 }
-
 
 
 .resumen-compra {
