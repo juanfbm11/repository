@@ -53,18 +53,23 @@ export class ListarComponent implements OnInit{
      this._util.AbrirModal(this.modal);
   }
  
-  guardarusuario() {
-    if (this.isNew) {
-      this.Vectorusuarios.push(this.usuarioselecionado!); 
-       this.usuarioselecionado = undefined;
-      this._util.cerrarModal(this.modal);
-    } else { 
-      this._usuarioService.putusuario     
+ guardarusuario() {
+  if (this.isNew) {
+    this._usuarioService.postusuario(this.usuarioselecionado!).subscribe(() => {
+      this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
       this.usuarioselecionado = undefined;
       this._util.cerrarModal(this.modal);
-    }
-    Swal.fire({ title: 'cambio guardado correctamente', icon: 'success' });
+      Swal.fire({ title: 'Usuario guardado correctamente', icon: 'success' });
+    });
+  } else {
+    this._usuarioService.putusuario(this.usuarioselecionado!).subscribe(() => {
+      this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
+      this.usuarioselecionado = undefined;
+      this._util.cerrarModal(this.modal);
+      Swal.fire({ title: 'Usuario actualizado correctamente', icon: 'success' });
+    });
   }
+}
   EliminarUsuario(us: usuario) {
     Swal.fire({
       icon: 'question',

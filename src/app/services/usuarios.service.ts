@@ -15,12 +15,12 @@ export class UsuarioService {
     this.apiBase = environment.urlApiBase + 'usuario';
   }
 
-  getusuario(): Observable<usuario[]> {
+  getusuario( ): Observable<usuario[]> {
     return this._http.get<usuario[]>(this.apiBase);
   }
-  putusuario(id: number, p: usuario):Observable<usuario>{
-      return this._http.put<usuario>(`${this.apiBase}/${id}`, p);
-    }
+ putusuario(u: usuario): Observable<usuario> {
+  return this._http.put<usuario>(`${this.apiBase}/${u.id}`, u);
+}
   
     postusuario(p:usuario):Observable<usuario>{
       return this._http.post<usuario>(this.apiBase, p)

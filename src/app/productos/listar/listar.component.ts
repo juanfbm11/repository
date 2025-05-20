@@ -55,17 +55,22 @@ export class ListarComponent  implements OnInit {
     this._util.AbrirModal(this.modal);
   }
   guardarproducto() {
-    if (this.isNew) {
-      this.vectorproductos.push(this.productoselecionado!);
+  if (this.isNew) {
+    this._productoService.postproducto(this.productoselecionado!).subscribe(() => {
+      this.loadProducto(); // Recargar lista desde la API para reflejar el cambio
       this.productoselecionado = undefined;
       this._util.cerrarModal(this.modal);
-    } else {
-      this._productoService.putproducto
+      Swal.fire({ title: 'Guardado correctamente', icon: 'success' });
+    });
+  } else {
+    this._productoService.putproducto(this.productoselecionado!).subscribe(() => {
+      this.loadProducto(); // Recargar lista desde la API
       this.productoselecionado = undefined;
       this._util.cerrarModal(this.modal);
-    }
-    Swal.fire({ title: ' Guardado correctamente', icon: 'success' });
+      Swal.fire({ title: 'Actualizado correctamente', icon: 'success' });
+    });
   }
+}
   EliminarProducto(us: Producto) {
     Swal.fire({
       icon: 'success',

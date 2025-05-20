@@ -19,12 +19,12 @@ export class ProductosService {
     return this._http.get<Producto[]>(this.apiBase);
   }
 
-  postproducto(p:Producto):Observable<Producto>{
+  postproducto(p:Producto): Observable<Producto>{
     return this._http.post<Producto>(this.apiBase, p)
   }
    
   putproducto(p:Producto):Observable<Producto>{
-    return this._http.put<Producto>(`${this.apiBase}/${id}`, p);
+    return this._http.put<Producto>(`${this.apiBase}/${p.id}`, p);
   }  
 
   deleteproducto(): Observable<Producto[]>{

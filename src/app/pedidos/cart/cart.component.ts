@@ -30,8 +30,7 @@ export class CartComponent {
 
   athome(){
     this.router.navigate(['/home']);
-    Swal.fire({ title: 'Pagó correctamente', icon: 'success' });
-
+    Swal.fire({ title: 'Se realizo pago correctamente', icon: 'success' });
   }
    
   atproducto() {
@@ -48,8 +47,7 @@ export class CartComponent {
     this.subtotal = 0;
     this.carrito.forEach((f) => {
       this.subtotal += f.cantidad * f.precio;
-    });
-    
+    });    
     this.carrito.forEach((j) =>{
       this.total +=  j.precio; 
     })
