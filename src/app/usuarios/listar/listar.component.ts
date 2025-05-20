@@ -1,10 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { usuario } from '../../models/usuario';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../../services/usuarios.service';
 import { UtilityService } from '../../services/utility.service';
 import { Toast } from 'bootstrap';
-
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -12,7 +11,7 @@ import { Toast } from 'bootstrap';
   templateUrl:'./listar.component.html',
   styleUrl:'./listar.component.css',
 })
-export class ListarComponent {
+export class ListarComponent implements OnInit{
   @ViewChild('modalUsuariodata') modal: ElementRef | undefined;
  
   Vectorusuarios: usuario[] = [];
@@ -21,8 +20,11 @@ export class ListarComponent {
   isNew: boolean = false;
   isloading = true;
 
-  constructor(private _usuarioService: UsuarioService, private _util: UtilityService){ 
-    this.LoadUsuarios();
+  constructor(private _usuarioService: UsuarioService, private _util: UtilityService)
+  { }
+   
+  ngOnInit()  {
+      this.LoadUsuarios();
   }
 
   LoadUsuarios() {
@@ -39,10 +41,16 @@ export class ListarComponent {
     this.isNew = false;
     this.usuarioselecionado = usuario;
   }
+  
   nuevousuario() {
     this._util.AbrirModal(this.modal);
     this.isNew = true;
-    this.usuarioselecionado = { id: 0, fechaRegistro: new Date(), nombre: '' };
+    this.usuarioselecionado = { 
+      id: 0, 
+      fechaRegistro: new Date(),
+      nombre: ''
+     };
+     this._util.AbrirModal(this.modal);
   }
  
   guardarusuario() {
@@ -50,7 +58,8 @@ export class ListarComponent {
       this.Vectorusuarios.push(this.usuarioselecionado!); 
        this.usuarioselecionado = undefined;
       this._util.cerrarModal(this.modal);
-    } else {      
+    } else { 
+      this._usuarioService.putusuario     
       this.usuarioselecionado = undefined;
       this._util.cerrarModal(this.modal);
     }
@@ -86,3 +95,4 @@ export class ListarComponent {
   }
   
 }
+

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Producto } from '../../models/productos';
 import Swal from 'sweetalert2';
 import { Modal, Toast } from 'bootstrap';
@@ -11,7 +11,7 @@ import { UtilityService } from '../../services/utility.service';
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css',
 })
-export class ListarComponent {
+export class ListarComponent  implements OnInit {
   @ViewChild('modalproducto') modal: ElementRef | undefined;
   @ViewChild('liveToast') toaster: ElementRef | undefined;
 
@@ -20,22 +20,24 @@ export class ListarComponent {
   isNew: boolean = false;
   isloading = true;
 
-  constructor(
-    private _productoService: ProductosService,
-    private _util: UtilityService
-  ) {
-    this.loadProducto();
+  constructor(private _productoService: ProductosService,private _util: UtilityService
+  ) {}
+
+  ngOnInit() {
+      this.loadProducto();
   }
 
   loadProducto() {
     this.isloading = true;
-    this._productoService.getproducto().subscribe((rs) => {
+    this._productoService.getproducto()
+    .subscribe((rs) => {
       this.vectorproductos = rs;
       this.isloading = false;
     });
   }
 
   Editarproducto(producto: Producto) {
+    this._util.AbrirModal(this.modal);
     this.isNew = false;
     this.productoselecionado = producto;
   }
@@ -50,6 +52,7 @@ export class ListarComponent {
       categoria: '',
       cantidad: 0,
     };
+    this._util.AbrirModal(this.modal);
   }
   guardarproducto() {
     if (this.isNew) {
@@ -57,7 +60,6 @@ export class ListarComponent {
       this.productoselecionado = undefined;
       this._util.cerrarModal(this.modal);
     } else {
-
       this._productoService.putproducto
       this.productoselecionado = undefined;
       this._util.cerrarModal(this.modal);

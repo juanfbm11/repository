@@ -14,8 +14,8 @@ export class ListarComponent {
   @ViewChild('liveToast') toaster: ElementRef | undefined;
   
   Vectorreservas: Reserva[] = [
-    { id: 1, nombre: 'cliente 1', fechaReserva: new Date(), total: 'numero 2' },
-    { id: 2, nombre: 'cliente 2', fechaReserva: new Date(), total: 'numero 4' },
+    { id: 1, nombre: 'Camila', fechaReserva: new Date(), total: ' 2' },
+    { id: 2, nombre: 'valeria', fechaReserva: new Date(), total: ' 4' },
   ];
   reservassselecionado: Reserva | undefined = undefined;
   isNew: boolean = false;

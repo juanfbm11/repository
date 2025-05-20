@@ -17,7 +17,7 @@ export class UtilityService {
 
   login(usr: string, pwd: string): Observable<boolean> {
     return new Observable((subs) => {
-      let rs = usr == 'admin' && pwd == '1234';
+      let rs = usr == 'Admin' && pwd == '1234';
       this.setSession(this.sessionKey, {
         id: 1,
         nombre: ' juan',

@@ -3,6 +3,7 @@ import { Producto } from '../../models/productos';
 import { ProductosService } from '../../services/productos.service';
 import { UtilityService } from '../../services/utility.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -26,6 +27,12 @@ export class CartComponent {
     this.carrito = c ? c : [];
     this.totales();
   }
+
+  athome(){
+    this.router.navigate(['/home']);
+    Swal.fire({ title: 'Pagó correctamente', icon: 'success' });
+
+  }
    
   atproducto() {
     this.router.navigate(['/productos/articulo']);
@@ -34,6 +41,7 @@ export class CartComponent {
   eleminar(){
     this._util.setSession('carrito' , undefined);
     this.router.navigate(['/productos/articulo']);
+    Swal.fire({ title: 'productos eliminados correctamente', icon: 'success' });
   }
 
   totales() {
@@ -43,7 +51,7 @@ export class CartComponent {
     });
     
     this.carrito.forEach((j) =>{
-      this.total +=  j.precio; ///add a total otros costos aca iria el iva
+      this.total +=  j.precio; 
     })
   }
 

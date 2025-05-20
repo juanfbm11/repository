@@ -1,8 +1,8 @@
 import {
   CommonModule,
   NgTemplateOutlet
-} from "./chunk-4IQMAUZC.js";
-import "./chunk-3GLSIHEZ.js";
+} from "./chunk-NAVURBST.js";
+import "./chunk-6E4F7ZRE.js";
 import {
   ApplicationRef,
   ChangeDetectionStrategy,
