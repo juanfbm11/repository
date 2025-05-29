@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Pedidos } from '../../models/pedidos';
+import { Pedido } from '../../models/pedidos';
 import { format } from 'date-fns-tz';
 
 @Component({
@@ -9,7 +9,7 @@ import { format } from 'date-fns-tz';
   styleUrl: './cupedidos.component.css',
 })
 export class CupedidosComponent {
-  @Input() Pedidos: Pedidos | undefined;
+  @Input() Pedidos: Pedido | undefined;
 
   formatDateTimeLocal(fecha: Date) {
     let fechaformateada = format(fecha, "yyyy-MM-dd'T'HH:mm", {
@@ -17,7 +17,20 @@ export class CupedidosComponent {
     });
     return fechaformateada;
   }
-  updateDate(valor: string) {
-    this.Pedidos!.fechaCompra = new Date(valor);
-  }
+  updateDate(valor: string) {  
+    if(this.Pedidos){
+      this.Pedidos.fechaCompra = new Date(valor);
+      this.Pedidos.nombre = this.Pedidos.nombre || '';
+      this.Pedidos.ciudad = this.Pedidos.ciudad || '';
+      this.Pedidos.direccion = this.Pedidos.direccion || '';
+      this.Pedidos.email = this.Pedidos.email || '';
+      this.Pedidos.metodoPago = this.Pedidos.metodoPago || '';
+      this.Pedidos.tipoEnvio = this.Pedidos.tipoEnvio || '';
+      this.Pedidos.total = this.Pedidos.total || 0;
+    }  
+      
+  
+
+    }
+    
 }

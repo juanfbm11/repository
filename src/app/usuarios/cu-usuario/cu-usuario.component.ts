@@ -14,8 +14,14 @@ export class CuUsuarioComponent {
   formatDateTimeLocal(fecha:Date){
     let  fechaformateada = format(fecha,"yyyy-MM-dd'T'HH:mm",{timeZone:"America/Bogota"})
     return fechaformateada;
+  } 
+   
+  updateDate(valor: string) {
+  if (this.usuario) {
+    this.usuario.fechaRegistro = new Date(valor);
+    this.usuario.contrasena = this.usuario.contrasena|| ''; 
+    this.usuario.correo = this.usuario.correo|| ''; 
+    this.usuario.nombreUsuario = this.usuario.nombreUsuario || ''; 
   }
-  updateDate(valor:string){
-    this.usuario!.fechaRegistro = new Date(valor);
-  }
+}
 }

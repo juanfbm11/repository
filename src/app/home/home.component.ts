@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  
-  
+export class HomeComponent implements OnInit {
+  usuario: string = '';
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }
-
-

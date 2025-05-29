@@ -1,8 +1,7 @@
 <div class="row justify-content-end">
   <div class="col-lg-1 col-12">
-    <button class="btn btn-success"
-      (click)="nuevoPedido()" data-bs-toggle="modal" data-bs-target="#modalpedido">
-      <i class="bi bi-patch-plus-fill"> Agregar</i>
+    <button class="btn btn-success" (click)="nuevoPedido()">
+      <i class="bi bi-patch-plus-fill"></i> Agregar
     </button>
   </div>
 </div>
@@ -15,20 +14,31 @@
           <th scope="col">Id</th>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha Compra</th>
+          <th scope="col">Email</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Método Pago</th>
           <th scope="col">Total</th>
+          
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let us of VectorPedidos">
-          <th scope="row">{{ us.id }}</th>
-          <td>{{ us.nombre }}</td>
-          <td>{{ us.fechaCompra | date: 'dd/MM/yyyy HH:mm' }}</td>
-          <td>{{ us.total }}</td>
+        <tr *ngFor="let p of VectorPedidos">
+          <th scope="row">{{ p.id }}</th>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.fechaCompra | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.ciudad }}</td>
+          <td>{{ p.direccion }}</td>
+          <td>{{ p.metodoPago }}</td>
+          <td>{{ p.total }}</td>
           <td>
-            <button class="btn btn-warning me-1" 
-              data-bs-toggle="modal" data-bs-target="#modalpedido" 
-              (click)="editarPedido(us)"><i class="bi bi-pencil-square"></i>Editar</button>
-            <button class="btn btn-danger"(click)="eliminarPedido(us)"><i class="bi bi-trash-fill"></i> Eliminar</button>
+            <button class="btn btn-warning me-1" (click)="editarPedido(p)">
+              <i class="bi bi-pencil-square"></i> Editar
+            </button>
+            <button class="btn btn-danger" (click)="eliminarPedido(p)">
+              <i class="bi bi-trash-fill"></i> Eliminar
+            </button>
           </td>
         </tr>
       </tbody>
@@ -36,19 +46,25 @@
   </div>
 </div>
 
-<!-- Modal -->
- <div class="modal fade" id="modalpedido" #modalpedido  
- data-bs-backdrop="static" data-bs-keyboard="false" 
-  tabindex="-1" aria-labelledby="modalpedidoLabel" aria-hidden="true"> 
+<!-- Modal para agregar/editar pedidos -->
+<div class="modal fade" 
+     id="modalpedido" 
+     #Modalpedido  
+     data-bs-backdrop="static"
+     data-bs-keyboard="false" 
+     tabindex="-1" 
+     aria-labelledby="modalpedidoLabel" 
+     aria-hidden="true"> 
   
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-         <h1 class="modal-title fs-5" id="modalpedidoLabel"> 
-          {{isNew?'Nuevo':'Editar'}} Pedido {{this.PedidoSeleccionado?.nombre}}</h1> 
-        <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
-       </div>
-       <div class="modal-body">
+        <h1 class="modal-title fs-5" id="modalpedidoLabel"> 
+          {{ isNew ? "Nuevo" : "Editar" }} Pedido {{ this.PedidoSeleccionado?.nombre }}
+        </h1> 
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <app-cupedidos [Pedidos]="PedidoSeleccionado"></app-cupedidos>
       </div> 
       <div class="modal-footer">
@@ -57,16 +73,16 @@
       </div>
     </div>
   </div>
- </div> 
+</div>
 
-<!-- Toast -->
-<button type="button" class="btn btn-primary" (click)="mostrarToast()">Show live toast</button>
+<!-- Toast para notificaciones -->
+<button type="button" class="btn btn-primary" (click)="mostrarToast()">Mostrar notificación</button>
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div #liveToast class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="..." />
-      <strong class="me-auto">Bootstrap</strong>
-      <small>Just now</small>
+      <img src="..." class="rounded me-2" alt="Logo" />
+      <strong class="me-auto">Perritos Callejeros</strong>
+      <small>Justo ahora</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
@@ -74,3 +90,4 @@
     </div>
   </div>
 </div>
+

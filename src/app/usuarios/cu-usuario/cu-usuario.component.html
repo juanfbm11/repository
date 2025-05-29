@@ -2,13 +2,65 @@
   <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
     <input
-      type="text"*ngIf="usuario" class="form-control" id="nombre"name="nombre"placeholder="ingrese el nombre"
-      [(ngModel)]="usuario.nombre"/>
+      type="text"
+      *ngIf="usuario"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="Ingrese el nombre"
+      [(ngModel)]="usuario.nombre"
+    />
   </div>
+
+  <div class="mb-3">
+    <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
+    <input
+      type="text"
+      *ngIf="usuario"
+      class="form-control"
+      id="nombreUsuario"
+      name="nombreUsuario"
+      placeholder="Ingrese el nombre de usuario"
+      [(ngModel)]="usuario.nombreUsuario"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="correo" class="form-label">Correo Electrónico</label>
+    <input
+      type="email"
+      *ngIf="usuario"
+      class="form-control"
+      id="correo"
+      name="correo"
+      placeholder="Ingrese el correo"
+      [(ngModel)]="usuario.correo"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="contraseña" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      *ngIf="usuario"
+      class="form-control"
+      id="contraseña"
+      name="contraseña"
+      placeholder="Ingrese la contraseña"
+      [(ngModel)]="usuario.contrasena"
+    />
+  </div>
+
   <div class="mb-3">
     <label for="fechaRegistro" class="form-label">Fecha Registro</label>
     <input
-      class="form-control"id="fechaRegistro"type="datetime-local"*ngIf="usuario"name="fechaRegistro"
-      [ngModel]=" formatDateTimeLocal (usuario!.fechaRegistro)"(ngModelChange)="updateDate($event)"/>
+      class="form-control"
+      id="fechaRegistro"
+      type="datetime-local"
+      *ngIf="usuario"
+      name="fechaRegistro"
+      [ngModel]="formatDateTimeLocal(usuario!.fechaRegistro)"
+      (ngModelChange)="updateDate($event)"
+    />
   </div>
 </form>

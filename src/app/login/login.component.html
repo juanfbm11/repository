@@ -1,33 +1,38 @@
-<div class="login-container">
-
-    <div class="login-card">
+<div class="login-container" >
+    <div class="login-card" >
         <h2>Iniciar sesión</h2>
-        <br>
-        
+        <br>        
         <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
             <div class="form group">
                 <label for="usr">Usuario</label>
-                <input type="text" id="usr" name="usr" required [(ngModel)]="usr">
+                <input type="text" id="nombreUsuario" name="nombreUsuario" required [(ngModel)]="nombreUsuario">
             </div>   
             <br>         
-            <div class="form-group password-container">
+            <div class="form-group password-container" >
                 <label for="pwd">Contraseña</label>
                 <div class="input-with-icon">
-                  <input [type]="showPassword ? 'text' : 'password'" id="pwd" name="pwd" required [(ngModel)]="pwd" placeholder="Tu contraseña">
+                  <input [type]="showPassword ? 'text' : 'password'" id="contrasena" name="contrasena" required [(ngModel)]="contrasena" placeholder="Tu contraseña">
                   <span class="toggle-password" (click)="togglePasswordVisibility()">
                     <i class="material-icons">{{ showPassword ? 'visibility' : 'visibility_off' }}</i>
                   </span>
                 </div>
               </div>
-<br>
+        <br>
                 <div class="remember-me">
                     <input type="checkbox" id="remember" name="remember" [(ngModel)]="rememberMe">
                     <label for="remember">Recuérdame</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Iniciar sesión
-                </button>
+                <button type="submit" class="btn btn-primary"> Iniciar sesión</button>
             </form>       
     </div>
 </div>
+
+  
+
+
+
+
+
+
+

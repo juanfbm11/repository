@@ -18,4 +18,5 @@ export class CuReservasComponent {
   updateDate (valor:string){
     this.reserva!.fechaReserva=new Date(valor);
   }
+  
 }

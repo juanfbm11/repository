@@ -5,38 +5,35 @@ import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-header',
-  standalone:false,  
-  templateUrl:'./header.component.html',
+  standalone: false,
+  templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  currenUsuario:  usuario | undefined;
+  usuario: string = '';
 
   constructor(private router: Router, private util: UtilityService) {
-    if(util.isloggedIn())
-    this.currenUsuario= this.util.getCurrentUser();
-    else
-    this.router.navigate(['/login'])
+    let u = util.getCurrentUser();
+    if (u) this.usuario = u!.nombre;
+    else this.router.navigate(['/login']);
   }
-  
-  
+
   goToListar() {
     this.router.navigate(['/usuarios']);
   }
-  irlogin(){
-    this.router.navigate(['/login'])
+  irlogin() {
+    this.router.navigate(['/login']);
   }
-  ircart(){
-    this.router.navigate(['/cart'])
+  ircart() {
+    this.router.navigate(['/cart']);
   }
-  home(){
-    this.router.navigate(['/home'])
+  home() {
+    this.router.navigate(['/home']);
   }
-  articulo(){
-    this.router.navigate(['/productos/articulo'])
+  articulo() {
+    this.router.navigate(['/productos/articulo']);
   }
-  reservacion(){
-    this.router.navigate(['/reservas/reservacion'])
+  reservacion() {
+    this.router.navigate(['/reservas/reservacion']);
   }
-
 }

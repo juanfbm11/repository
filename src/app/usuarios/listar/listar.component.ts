@@ -8,68 +8,87 @@ import { Toast } from 'bootstrap';
 @Component({
   selector: 'app-listar-usuarios',
   standalone: false,
-  templateUrl:'./listar.component.html',
-  styleUrl:'./listar.component.css',
+  templateUrl: './listar.component.html',
+  styleUrl: './listar.component.css',
 })
-export class ListarComponent implements OnInit{
+export class ListarComponent implements OnInit {
+  usuario: usuario[] = [];
   @ViewChild('modalUsuariodata') modal: ElementRef | undefined;
- 
+  @ViewChild('liveToast') toaster: ElementRef | undefined;
+
   Vectorusuarios: usuario[] = [];
 
   usuarioselecionado: usuario | undefined = undefined;
   isNew: boolean = false;
   isloading = true;
 
-  constructor(private _usuarioService: UsuarioService, private _util: UtilityService)
-  { }
-   
-  ngOnInit()  {
-      this.LoadUsuarios();
+  constructor(
+    private _usuarioService: UsuarioService,
+    private _util: UtilityService
+  ) {
+    let u = this._util.getSession<usuario[]>('usuario');
+    this.usuario = u ? u : [];
+  }
+
+  ngOnInit() {
+    this.LoadUsuarios();
   }
 
   LoadUsuarios() {
     this.isloading = true;
-    this._usuarioService.getusuario()
-    .subscribe((rs) => {
+    this._usuarioService.getusuario().subscribe((rs) => {
       this.Vectorusuarios = rs;
       this.isloading = false;
     });
   }
-  
+
   EditarUsuario(usuario: usuario) {
     this._util.AbrirModal(this.modal);
     this.isNew = false;
     this.usuarioselecionado = usuario;
   }
-  
+
   nuevousuario() {
     this._util.AbrirModal(this.modal);
     this.isNew = true;
-    this.usuarioselecionado = { 
-      id: 0, 
+    this.usuarioselecionado = {
+      id: 0,
       fechaRegistro: new Date(),
-      nombre: ''
-     };
-     this._util.AbrirModal(this.modal);
+      nombre: '',
+      nombreUsuario: '',
+      contrasena: '',
+      correo: '',
+    };
+    this._util.AbrirModal(this.modal);
   }
- 
- guardarusuario() {
-  if (this.isNew) {
-    this._usuarioService.postusuario(this.usuarioselecionado!).subscribe(() => {
-      this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
-      this.usuarioselecionado = undefined;
-      this._util.cerrarModal(this.modal);
-      Swal.fire({ title: 'Usuario guardado correctamente', icon: 'success' });
-    });
-  } else {
-    this._usuarioService.putusuario(this.usuarioselecionado!).subscribe(() => {
-      this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
-      this.usuarioselecionado = undefined;
-      this._util.cerrarModal(this.modal);
-      Swal.fire({ title: 'Usuario actualizado correctamente', icon: 'success' });
-    });
+
+  guardarusuario() {
+    if (this.isNew) {
+      this._usuarioService
+        .postusuario(this.usuarioselecionado!)
+        .subscribe(() => {
+          this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
+          this.usuarioselecionado = undefined;
+          this._util.cerrarModal(this.modal);
+          Swal.fire({
+            title: 'Usuario guardado correctamente',
+            icon: 'success',
+          });
+        });
+    } else {
+      this._usuarioService
+        .putusuario(this.usuarioselecionado!)
+        .subscribe(() => {
+          this.LoadUsuarios(); // Recargar la lista de usuarios desde la API
+          this.usuarioselecionado = undefined;
+          this._util.cerrarModal(this.modal);
+          Swal.fire({ 
+            title: 'Actualizado correctamente', 
+            icon: 'success' });
+        });
+    }
   }
-}
+  
   EliminarUsuario(us: usuario) {
     Swal.fire({
       icon: 'question',
@@ -87,7 +106,14 @@ export class ListarComponent implements OnInit{
         confirmButton: 'btn btn-danger',
       },
     }).then((rs) => {
-      if (rs.isConfirmed) {       
+      if (rs.isConfirmed) {
+        this._usuarioService
+        .deleteusuario(us.id)
+        .subscribe(() =>{
+        this.LoadUsuarios();
+        this.usuarioselecionado = undefined;
+        this._util.cerrarModal(this.modal);
+        })
         Swal.fire({
           title: 'Usuario eliminado correctamente',
           icon: 'success',
@@ -95,9 +121,8 @@ export class ListarComponent implements OnInit{
       }
     });
   }
-  mostrarToast(){
-   this._util.showToaster('usuario guardado exitosamente', 2, 'danger');
+  mostrarToast() {
+    this._util.showToaster('usuario guardado exitosamente', 2, 'danger');
   }
-  
 }
 

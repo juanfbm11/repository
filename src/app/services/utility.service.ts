@@ -1,31 +1,40 @@
 import { ElementRef, Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { catchError, map, Observable, of, Subject, tap } from 'rxjs';
 import { Modal } from 'bootstrap';
 import { toasterModel } from '../models/core/toaster.model';
 import { usuario } from '../models/usuario';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilityService {
+  private urlApiBase = '';
   private toasterSubject = new Subject<toasterModel>();
   private sessionKey = 'UsuarioSession ';
 
   toaster$ = this.toasterSubject.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient) {
+    this.urlApiBase = environment.urlApiBase;
+  }
 
-  login(usr: string, pwd: string): Observable<boolean> {
-    return new Observable((subs) => {
-      let rs = usr == 'Admin' && pwd == '1234';
-      this.setSession(this.sessionKey, {
-        id: 1,
-        nombre: ' juan',
-        fechaRegistro: new Date(),
-      });
-      subs.next(rs);
-      subs.complete();
-    });
+  login(nombreUsuario: string, contrasena: string): Observable<boolean> {
+    return this.http
+      .post<boolean>(this.urlApiBase + 'usuario/login', {
+        nombreUsuario,
+        contrasena,
+      })
+      .pipe(
+        tap((rs) => {
+          this.setSession(this.sessionKey, rs);
+        }),
+        map(() => true),
+        catchError((error) => {
+          return of(false);
+        })
+      );
   }
 
   getCurrentUser(): usuario | undefined {
@@ -71,6 +80,7 @@ export class UtilityService {
       document.body.removeAttribute('class');
     }
   }
+
   showToaster(
     message: string,
     delay: number,

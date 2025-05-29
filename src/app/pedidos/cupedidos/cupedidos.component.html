@@ -7,32 +7,102 @@
       class="form-control"
       id="nombre"
       name="nombre"
-      placeholder="ingrese el nombre"
+      placeholder="Ingrese el nombre"
       [(ngModel)]="Pedidos.nombre"
     />
   </div>
+  
   <div class="mb-3">
-    <label for="fechaCompra" class="form-label"> Fecha Compra</label>
+    <label for="fechaCompra" class="form-label">Fecha Compra</label>
     <input
       class="form-control"
       id="fechaCompra"
       type="datetime-local"
       *ngIf="Pedidos"
       name="fechaCompra"
-      [ngModel]="formatDateTimeLocal(Pedidos!.fechaCompra)"
+      [ngModel]="formatDateTimeLocal(Pedidos.fechaCompra)"
       (ngModelChange)="updateDate($event)"
     />
   </div>
+  
   <div class="mb-3">
-    <label for="total" class="form-control">Total</label>
+    <label for="total" class="form-label">Total</label>
     <input
       type="text"
       *ngIf="Pedidos"
       class="form-control"
       id="total"
       name="total"
-      placeholder="ingrese valor total"
+      placeholder="Ingrese valor total"
       [(ngModel)]="Pedidos.total"
     />
   </div>
+  
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      *ngIf="Pedidos"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Ingrese su email"
+      [(ngModel)]="Pedidos.email"
+      required
+    />
+  </div>
+  
+ <div class="mb-3">
+  <label for="ciudad" class="form-label">Ciudad</label>
+  <select
+    *ngIf="Pedidos"
+    class="form-select"
+    id="ciudad"
+    name="ciudad"
+    [(ngModel)]="Pedidos.ciudad"
+    required>
+    <option value="" disabled selected>Seleccione una ciudad</option>
+    <option value="Medellin">Medellín</option>
+    <option value="Itagüí">Itagüí</option>
+    <option value="Caldas">Caldas</option>
+    <option value="Estrella">Estrella</option>
+    <option value="Envigado">Envigado</option>
+    <option value="Poblado">Poblado</option>    
+  </select>
+</div>
+  
+  <div class="mb-3">
+    <label for="direccion" class="form-label">Dirección</label>
+    <input
+      type="text"
+      *ngIf="Pedidos"
+      class="form-control"
+      id="direccion"
+      name="direccion"
+      placeholder="Ingrese la dirección"
+      [(ngModel)]="Pedidos.direccion"
+      required
+    />
+  </div>
+  
+  <div class="mb-3">
+    <label for="metodoPago" class="form-label">Método de Pago</label>
+    <select
+      *ngIf="Pedidos"
+      class="form-select"
+      id="metodoPago"
+      name="metodoPago"
+      [(ngModel)]="Pedidos.metodoPago"
+      required
+    >
+      <option value="" disabled selected>Seleccione un método de pago</option>
+      <option value="tarjeta">Tarjeta de Crédito</option>
+      <option value="efectivo">Efectivo</option>
+      <option value="transferencia">Transferencia Bancaria</option>
+      <
+    </select>
+  </div>
 </form>
+
+
+

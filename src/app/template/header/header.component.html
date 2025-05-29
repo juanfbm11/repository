@@ -6,9 +6,12 @@
       <span class="amarillo">CALLEJEROS</span>
     </h1>
     <div class="botones">
-      <button class="Boton_Inicio" (click)="irlogin()"> 
-        <i class="bi bi-person-fill-add"></i> Iniciar Sesión
+        
+    <button *ngIf="!usuario" class="Boton_Inicio" (click)="irlogin()"> 
+        <i class="bi bi-person-fill-add"></i>Iniciar Sesión
       </button>
+      <span class="blanco" *ngIf="usuario">Hola, {{ usuario }}!</span>
+
       <button class="Boton_cart" (click)="ircart()">
         <span class="texto-cart"><i class="bi bi-cart-check-fill">Carrito</i></span>
       </button>

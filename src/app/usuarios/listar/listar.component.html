@@ -1,7 +1,6 @@
 <div class="row justify-content-end">
   <div class="col-lg-1 col-12">
-    <button
-      class="btn btn-success"(click)="nuevousuario()"><i class="bi bi-patch-plus-fill"></i>Agregar</button>
+    <button class="btn btn-success"(click)="nuevousuario()"><i class="bi bi-patch-plus-fill"></i>Agregar</button>
   </div>
 </div>
 
@@ -18,14 +17,21 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Fecha Registro</th>            
-          </tr>
+            <th scope="col">Fecha Registro</th>  
+             <th scope="col">Nombre usuario</th>
+              <th scope="col">contraseña</th>
+               <th scope="col">correo</th>
+            </tr>
         </thead>
+
         <tbody>
           <tr *ngFor="let us of Vectorusuarios">
             <th scope="row">{{ us.id }}</th>
             <td>{{ us.nombre }}</td>
             <td>{{ us.fechaRegistro | date : "dd/MM/YYYY HH:mm" }}</td>
+            <td>{{ us.nombreUsuario }}</td>
+            <td>{{ us.contrasena}}</td>
+            <td>{{ us.correo }}</td>            
             <td>
               <button
                 class="btn btn-warning me-1" (click)="EditarUsuario(us)" ><i class="bi bi-pencil-square"></i>Editar</button>
@@ -38,8 +44,7 @@
   </div>
 
   <!-- Modal -->
-  <div
-    class="modal fade"
+  <div class="modal fade"
     id="modalUsuario" #modalUsuariodata 
     data bs-backdrop="static" 
     data-bs-keyboard="false" 
@@ -52,7 +57,8 @@
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="modalUsuarioLabel">
             {{ isNew ? "Nuevo" : "Editar" }} Usuario {{ this.usuarioselecionado?.nombre }} </h1>
-          <button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div>
+          <button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button>
+        </div>
         <div class="modal-body">
           <app-cu-usuario [usuario]="usuarioselecionado"></app-cu-usuario></div>
         <div class="modal-footer">

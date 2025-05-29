@@ -17,16 +17,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let us of Vectorreservas">
-          <th scope="row">{{ us.id }}</th>
-          <td>{{ us.nombre }}</td>
-          <td>{{ us.fechaReserva | date: 'dd/MM/YYYY HH:mm'}}</td>
-          <td>{{ us.total }}</td>
+        <tr *ngFor="let r of Vectorreservas">
+          <th scope="row">{{ r.id }}</th>
+          <td>{{ r.nombre }}</td>
+          <td>{{ r.fechaReserva | date: 'dd/MM/YYYY HH:mm'}}</td>
+          <td>{{ r.total }}</td>
           <td>
             <button
               class="btn btn-warning me-1" data-bs-toggle="modal" data-bs-target="#modalreserva"
-              (click)="Editarreserva(us)"><i class="bi bi-pencil-square"></i>Editar</button>
-            <button class="btn btn-danger" (click)="EliminarReserva(us)"><i class="bi bi-trash-fill"></i>Eliminar</button>
+              (click)="Editarreserva(r)"><i class="bi bi-pencil-square"></i>Editar</button>
+            <button class="btn btn-danger" (click)="EliminarReserva(r)"><i class="bi bi-trash-fill"></i>Eliminar</button>
           </td>
         </tr>
       </tbody>

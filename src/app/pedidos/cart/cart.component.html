@@ -37,40 +37,41 @@
     
   </div>
 
-  <!-- Sección de pago -->
-  <div class="formulario-pago">
+<div class="formulario-pago" >
     <h2 class="">Información de Pago</h2>
 
-    <form>
-      <input type="email" placeholder="Correo electrónico" />
-      <input type="text" placeholder="Nombre completo" />
-      <select>
-        <option>Ciudad</option>
-        <option>Medellín</option>
-        <option>Itagüí</option>
-        <option>Caldas</option>
-        <option>Estrella</option>
-        <option>Envigado</option>
-        <option>Poblado</option>
+    <form  (ngSubmit)="athome(pedidoForm)" #pedidoForm="ngForm">
+      <input type="email" placeholder="Correo electrónico" [(ngModel)]="email" name="email" required />
+      <input type="text" placeholder="Nombre completo" [(ngModel)]="nombreCompleto" name="nombreCompleto" required />
+      <input type="text" placeholder="Dirección" [(ngModel)]="direccion" name="direccion" required />
+      <select [(ngModel)]="ciudad" name="ciudad">
+        <option value="">Ciudad</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Itagüí">Itagüí</option>
+        <option value="Caldas">Caldas</option>
+        <option value="Estrella">Estrella</option>
+        <option value="Envigado">Envigado</option>
+        <option value="Poblado">Poblado</option>
       </select>
-      <input type="text" placeholder="Dirección" />
-
       <h4>Tipo de Envío</h4>
-      <label><input type="radio" name="envio" checked /> Envío Gratis</label>
-      <label><input type="radio" name="envio" /> Envío Rápido $4.000</label>
+      <label>
+        <input type="radio" name="envio" value="gratis" [(ngModel)]="tipoEnvio" checked /> Envío Gratis
+      </label>
+      <label>
+        <input type="radio" name="envio" value="rapido" [(ngModel)]="tipoEnvio" /> Envío Rápido $4.000
+      </label>
       <br /><br /><br />
       <h4>Método de Pago</h4>
       <div class="metodos-pago">
-        <button type="button">TARJETA</button>
-        <button type="button">PSE</button>
-        <button type="button">BANCO</button>
+        <button type="button" (click)="metodoPago = 'tarjeta'">TARJETA</button>
+        <button type="button" (click)="metodoPago = 'pse'">PSE</button>
+        <button type="button" (click)="metodoPago = 'banco'">BANCO</button>
       </div>
 
-      <input type="text" placeholder="Número de Tarjeta" />
-      <input type="text" placeholder="MM/AA" />
-      <input type="text" placeholder="CVC" />
+      <input type="text" placeholder="Número de Tarjeta" [(ngModel)]="numeroTarjeta" name="numeroTarjeta" />
+      <input type="text" placeholder="MM/AA" [(ngModel)]="fechaTarjeta" name="fechaTarjeta" />
+      <input type="text" placeholder="CVC" [(ngModel)]="cvc" name="cvc" />
 
-      <button  class="boton-pagar" (click)="athome()">Pagar</button>
+      <button type="submit" class="boton-pagar">Pagar</button>
     </form>
-  </div>
 </div>

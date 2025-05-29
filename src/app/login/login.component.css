@@ -120,3 +120,33 @@ input[type="checkbox"] {
   background-color: #e65c00;
   transform: scale(1.02);
 }
+
+/* 
+   Tarjeta de registro */
+.login-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.login-card {
+  background: #070101;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+

@@ -10,13 +10,19 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  usr: string = '';
-  pwd: string = '';
+  nombreUsuario: string = '';
+  contrasena: string = '';
   rememberMe: boolean = false;
   showPassword: boolean = false;
 
 
-  constructor(private _utilService: UtilityService, private router: Router) {}
+
+
+  constructor(private _utilService: UtilityService, 
+    private router: Router) {
+      let u = this._utilService.getCurrentUser();
+      if(u) this.router.navigate(['/']);
+    }
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -24,9 +30,11 @@ export class LoginComponent {
 
 
   login() {
-    this._utilService.login(this.usr, this.pwd).subscribe((rs) => {
-      if (rs) {
-        this.router.navigate(['/']);
+    this._utilService.login(this.nombreUsuario, this.contrasena)
+    .subscribe((rs) => {
+      if (rs) {        
+        this.router.navigate(['/']); 
+        
       } else {
         Swal.fire({
           title: 'usuario y/o contraseña incorrectos',
@@ -35,4 +43,11 @@ export class LoginComponent {
       }
     });
   }
+
+
+
+
+
+
+
 }
