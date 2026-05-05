@@ -1,170 +1,123 @@
-* {
-  box-sizing: border-box;
-}
+/* FUERZA EL FONDO OSCURO */
+:host { display: block; background-color: #0a0a0b; min-height: 100vh; }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 2rem;
+.checkout-section {
+  background-color: #0a0a0b !important;
+  color: #ffffff;
+  padding: 40px 20px;
+  min-height: 100vh;
 }
 
 .contenedor-carrito {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-wrap: wrap; /* Para que en celular se ponga uno abajo de otro */
+  gap: 30px;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
-.productos, .formulario-pago {
-  flex: 1;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-  min-width: 300px;
+.productos-col { flex: 1.2; min-width: 320px; }
+.pago-col { flex: 0.8; min-width: 320px; position: sticky; top: 20px; }
+
+/* TARJETAS PREMIUM */
+.spartan-card {
+  background: #121214 !important;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #1f1f23;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
 
-.producto {
-  display: flex;
-  gap: 1rem;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
-}
+.neon-border { border: 1px solid #ff6a0066; }
 
-.producto img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.detalles-producto {
-  flex: 1;
-}
-
-.nombre-producto {
-  font-weight: 700;
-  margin: 0;
-}
-
-.precio-producto {
-  color: #000000;
-  margin: 0.9rem 0;
-}
-
-.cantidad {
-  padding: 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-.botones-acciones{
-  display: flex;
-  gap: 1rem; 
-  margin-top: 20px;
-  justify-content: flex-start;
-}
-.boton-seguir-comprando {
-  margin-top: 20px;
-  text-align: left;
-}
-
-.btn-seguir {
-  background-color: #ffa500; /* naranja */
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
+.titulo-checkout {
+  color: #ff6a00;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff6a00;
+  padding-bottom: 10px;
   display: inline-block;
-  transition: background-color 0.3s ease;
 }
 
-.btn-seguir:hover {
-  background-color: #ff8c00; /* naranja oscuro */
-}
-
-.btn-salir {
-  background-color: #dc3545; /* rojo */
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.btn-salir:hover {
-  background-color: #b02a37; /* rojo oscuro */
-}
-
-
-.resumen-compra {
-  margin-top: 1rem;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1rem;
-}
-
-.resumen-compra p {
+/* PRODUCTOS */
+.producto-item {
   display: flex;
-  justify-content: space-between;
-  margin: 0.3rem 0;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #1f1f23;
 }
 
-.total {
-  font-weight: bold;
-  font-size: 1.8rem;
+.img-mini-wrapper img {
+  width: 70px; height: 70px; border-radius: 10px; object-fit: cover;
 }
 
-input, select {
-  width: 100%;
-  padding: 0.7rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
+.nombre-producto { font-weight: 600; margin: 0; font-size: 1rem; color: #fff; }
+.precio-unitario { color: #ff6a00; font-weight: 700; margin: 0; }
 
-.metodos-pago {
+/* SELECTOR CANTIDAD */
+.acciones-producto { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+
+.selector-cantidad-modern {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.metodos-pago button {
-  flex: 1;
-  padding: 0.6rem;
-  background-color: #e9ecef;
-  border: none;
+  align-items: center;
+  background: #000;
   border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  border: 1px solid #333;
 }
 
-.metodos-pago button:hover {
-  background-color: #dee2e6;
+.selector-cantidad-modern button {
+  background: transparent; border: none; color: #ff6a00;
+  padding: 5px 12px; cursor: pointer; font-size: 1.2rem;
 }
 
-.checkbox {
-  margin: 1rem 0;
-  font-size: 0.9rem;
+.qty-num { color: #fff; font-weight: bold; min-width: 20px; text-align: center; }
+
+.btn-remove {
+  background: transparent; border: none; color: #ff4d4d;
+  font-size: 1.2rem; cursor: pointer; transition: 0.2s;
+}
+.btn-remove:hover { transform: scale(1.2); }
+
+/* FORMULARIO */
+.input-container { position: relative; margin-bottom: 15px; }
+.input-container i { position: absolute; left: 15px; top: 12px; color: #ff6a00; }
+
+.input-container input, .input-container select {
+  width: 100%; padding: 12px 12px 12px 45px;
+  background: #000 !important; border: 1px solid #333;
+  color: #fff; border-radius: 8px;
 }
 
-.boton-pagar {
-  width: 100%;
-  padding: 1rem;
-  background-color: #28a745;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+.row-flex { display: flex; gap: 10px; }
+.flex-2 { flex: 2; } .flex-1 { flex: 1; }
 
-.boton-pagar:hover {
-  background-color: #218838;
+/* TOTALES */
+.summary-box {
+  background: #000; padding: 20px; border-radius: 12px; margin-top: 20px;
+}
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: #aaa; }
+.gratis { color: #28a745; font-weight: bold; }
+
+.total-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px;
+}
+.total-monto { color: #ff6a00; font-size: 1.8rem; font-weight: 900; }
+
+/* BOTÓN PAGAR */
+.btn-pagar-final {
+  width: 100%; background: #ff6a00; color: #fff;
+  border: none; padding: 15px; border-radius: 8px;
+  font-weight: 800; font-size: 1.1rem; cursor: pointer;
+  margin-top: 20px; transition: 0.3s;
+}
+.btn-pagar-final:hover:not(:disabled) { background: #ff8c00; box-shadow: 0 0 20px rgba(255,106,0,0.4); }
+.btn-pagar-final:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-atras {
+  background: transparent; border: 1px solid #333; color: #aaa;
+  padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-top: 20px;
 }

@@ -1,77 +1,96 @@
-<br /><br />
-<div class="contenedor-carrito">
-  <!-- Sección de productos -->
-  <div class="productos">
-    <h2 class="">Carrito de Compras</h2>
-    <div class="producto" *ngFor="let l of carrito">
-      <img src="/assets/IMAGENES/{{ l.image }}" alt="{{ l.nombre }}" />
-      <div class="detalles-producto">
-        <p class="nombre-producto">{{ l.nombre }}</p>
-        <p class="precio-producto">💲{{ l.precio }}</p>
-        <select
-          class="cantidad"
-          [ngModel]="l.cantidad"
-          (ngModelChange)="setCantidad($event, l)"
-        >
-          <option value="1">1 unidad</option>
-          <option value="2">2 unidades</option>
-          <option value="3">3 unidades</option>
-          <option value="4">4 unidades</option>
-          <option value="5">5 unidades</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="resumen-compra">
-      <p>Envío: <span>Gratis</span></p>
-      
-      <p>Subtotal: <span>💲{{ subtotal }} </span></p><br/>
-      <p class="total">Total: <span>💲{{total}} </span></p>
-    </div>
-    <br /><br /><br />
-    <div class="botones-acciones">
-  <a class="btn-seguir" (click)="atproducto()">Seguir comprando</a>
-  <a class="btn-salir" (click)="eleminar()">Limpiar datos</a>
-</div>
-      
+<section class="checkout-section">
+  <div class="contenedor-carrito">
     
-  </div>
+    <div class="productos-col">
+      <div class="card-checkout spartan-card">
+        <div class="header-card">
+          <h2 class="titulo-checkout"><i class="bi bi-cart3"></i> Tu Carrito</h2>
+          <span class="count-badge">{{ carrito.length }} Items</span>
+        </div>
+        
+        <div class="lista-productos">
+          <div class="cart-empty" *ngIf="carrito.length === 0">
+            <p>Tu carrito está vacío</p>
+            <button class="btn-naranja" (click)="atproducto()">VER MENÚ</button>
+          </div>
 
-<div class="formulario-pago" >
-    <h2 class="">Información de Pago</h2>
+          <div class="producto-item" *ngFor="let l of carrito">
+            <div class="img-mini-wrapper">
+              <img src="/assets/IMAGENES/{{ l.image }}" [alt]="l.nombre" />
+            </div>
+            
+            <div class="detalles-producto">
+              <div class="info-principal">
+                <p class="nombre-producto">{{ l.nombre }}</p>
+                <p class="precio-unitario">${{ l.precio | number }}</p>
+              </div>
+              
+              <div class="acciones-producto">
+                <div class="selector-cantidad-modern">
+                  <button type="button" (click)="setCantidad(l.cantidad - 1, l)" [disabled]="l.cantidad <= 1">-</button>
+                  <span class="qty-num">{{ l.cantidad }}</span>
+                  <button type="button" (click)="setCantidad(l.cantidad + 1, l)" [disabled]="l.cantidad >= 10">+</button>
+                </div>
+                <button type="button" class="btn-remove" (click)="eliminarProducto(l)">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <form  (ngSubmit)="athome(pedidoForm)" #pedidoForm="ngForm">
-      <input type="email" placeholder="Correo electrónico" [(ngModel)]="email" name="email" required />
-      <input type="text" placeholder="Nombre completo" [(ngModel)]="nombreCompleto" name="nombreCompleto" required />
-      <input type="text" placeholder="Dirección" [(ngModel)]="direccion" name="direccion" required />
-      <select [(ngModel)]="ciudad" name="ciudad">
-        <option value="">Ciudad</option>
-        <option value="Medellín">Medellín</option>
-        <option value="Itagüí">Itagüí</option>
-        <option value="Caldas">Caldas</option>
-        <option value="Estrella">Estrella</option>
-        <option value="Envigado">Envigado</option>
-        <option value="Poblado">Poblado</option>
-      </select>
-      <h4>Tipo de Envío</h4>
-      <label>
-        <input type="radio" name="envio" value="gratis" [(ngModel)]="tipoEnvio" checked /> Envío Gratis
-      </label>
-      <label>
-        <input type="radio" name="envio" value="rapido" [(ngModel)]="tipoEnvio" /> Envío Rápido $4.000
-      </label>
-      <br /><br /><br />
-      <h4>Método de Pago</h4>
-      <div class="metodos-pago">
-        <button type="button" (click)="metodoPago = 'tarjeta'">TARJETA</button>
-        <button type="button" (click)="metodoPago = 'pse'">PSE</button>
-        <button type="button" (click)="metodoPago = 'banco'">BANCO</button>
+        <div class="botones-navegacion">
+          <button type="button" class="btn-atras" (click)="atproducto()">
+            <i class="bi bi-arrow-left"></i> SEGUIR COMPRANDO
+          </button>
+        </div>
       </div>
+    </div>
 
-      <input type="text" placeholder="Número de Tarjeta" [(ngModel)]="numeroTarjeta" name="numeroTarjeta" />
-      <input type="text" placeholder="MM/AA" [(ngModel)]="fechaTarjeta" name="fechaTarjeta" />
-      <input type="text" placeholder="CVC" [(ngModel)]="cvc" name="cvc" />
+    <div class="pago-col">
+      <div class="card-checkout spartan-card neon-border">
+        <h2 class="titulo-checkout"><i class="bi bi-shield-check"></i> PAGO SEGURO</h2>
+        
+        <form (ngSubmit)="athome(pedidoForm)" #pedidoForm="ngForm" class="form-pago">
+          <div class="input-group-spartan">
+            <div class="input-container">
+              <i class="bi bi-envelope"></i>
+              <input type="email" placeholder="Correo Electrónico" [(ngModel)]="email" name="email" required />
+            </div>
+            <div class="input-container">
+              <i class="bi bi-person"></i>
+              <input type="text" placeholder="Nombre Completo" [(ngModel)]="nombreCompleto" name="nombreCompleto" required />
+            </div>
+            <div class="row-flex">
+              <div class="input-container flex-2">
+                <i class="bi bi-geo-alt"></i>
+                <input type="text" placeholder="Dirección de entrega" [(ngModel)]="direccion" name="direccion" required />
+              </div>
+              <div class="input-container flex-1">
+                <select [(ngModel)]="ciudad" name="ciudad" required>
+                  <option value="" disabled selected>Ciudad</option>
+                  <option value="Medellín">Medellín</option>
+                  <option value="Itagüí">Itagüí</option>
+                  <option value="Envigado">Envigado</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-      <button type="submit" class="boton-pagar">Pagar</button>
-    </form>
-</div>
+          <div class="summary-box">
+            <div class="summary-row"><span>Subtotal</span><span>${{ subtotal | number }}</span></div>
+            <div class="summary-row"><span>Envío</span><span class="gratis">GRATIS</span></div>
+            <div class="total-row">
+              <span>TOTAL A PAGAR</span>
+              <span class="total-monto">${{ total | number }}</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-pagar-final" [disabled]="!pedidoForm.valid || carrito.length === 0">
+            FINALIZAR PEDIDO <i class="bi bi-chevron-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,135 +1,122 @@
-/* Cuerpo y Productos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap');
 
-section{
-    background-color: black;
-    font-family: poppins, sans-serif;
+.home-container {
+  background-color: #0c0c0d;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 0 60px 0;
 }
 
-.Cuerpo {
-    background-color: black;
-   
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
-    
+/* Header Hero */
+.home-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, #1a1a1c 0%, #0c0c0d 100%);
 }
 
-
-.producto {
-    position: relative;
-    max-width: 500px; 
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    text-align: center;
-    margin: 30px;
-    width: 300px;
-    display: inline-block;
+.home-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -2px;
 }
 
-.producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(238, 255, 2, 0.404);
-  }
+.home-hero h1 span { color: #ff6a00; }
 
-.producto img {
-  width: 115%;
+/* Grid de Productos */
+.cuerpo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: -40px auto 60px; /* Sube un poco para entrar en el hero */
+  padding: 0 20px;
+}
+
+/* Tarjetas */
+.card {
+  background: #161618;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border-color: #ff6a00;
+}
+
+.card-img { position: relative; height: 250px; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.badge {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: #ff6a00;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-content { padding: 25px; text-align: center; }
+.card-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+.card-content p { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+
+/* Botones */
+.btn-main, .btn-alt {
+  display: inline-block;
+  padding: 12px 30px;
   border-radius: 12px;
-  height: auto;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.producto h3 {
-    font-size: 2.0em;
-    margin: 10px 0;
-    color: red;
+.btn-main { background: #ff6a00; color: white; }
+.btn-alt { background: #2a9d8f; color: white; }
+.btn-main:hover { background: #e65c00; transform: scale(1.05); }
+
+/* Banner Promoción */
+.promo-banner {
+  background: linear-gradient(135deg, #ff6a00 0%, #ffc107 100%);
+  margin: 60px 20px;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  color: #000;
 }
 
-.producto p {
-  color: #ccc;
-  font-size: 1rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+.promo-info h2 { font-size: 2.2rem; font-weight: 900; margin: 10px 0; }
+.tag { background: #000; color: #fff; padding: 4px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; }
+
+/* MAPA INTEGRADO */
+.map-section {
+  max-width: 1100px;
+  margin: 80px auto 0;
+  padding: 0 20px;
 }
 
-.informacion {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6); 
-    color: white;
-    padding: 10px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    text-align: center;
+.map-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
 }
 
-.producto:hover .informacion {
-    transform: translateY(0);
+.map-frame {
+  border-radius: 30px;
+  overflow: hidden;
+  border: 4px solid #161618;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-/* Botón de Compra */
-.boton-compra {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-  .producto:nth-child(3) .boton-compra {
-    background-color: #2a9d8f;
-  }
-
-.boton-compra:hover {
-    background-color: darkred;
-    transform: scale(1.05);
-}
-
-.promocion {
-    background-color: #ffcc00; 
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 90%;
-}
-
-.promocion-texto {
-    display: block;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #d10000; 
-}
-
-.titulo-ubicacion {
-    font-size: 2.5rem; 
-    font-weight: bold; 
-    color: #ffffff; 
-    text-align: center; 
-    margin-bottom: 20px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-}
-.Mapa iframe {
-    width: 100%;
-    height: 400px;
-    border: 0;
-    border-radius: 10px;
-   
-}
-
-@media (max-width: 768px) {
-    .Cuerpo {
-      flex-direction: column;
-      align-items: center;
-    }
+.map-frame iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
+  /* El truco del mapa oscuro */
+  filter: grayscale(1) invert(0.92) contrast(1.2); 
 }

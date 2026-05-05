@@ -15,7 +15,6 @@ export class HeaderComponent {
   constructor(private router: Router, private util: UtilityService) {
     let u = util.getCurrentUser();
     if (u) this.usuario = u!.nombre;
-    else this.router.navigate(['/login']);
   }
 
   goToListar() {

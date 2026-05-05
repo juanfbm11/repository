@@ -1,38 +1,67 @@
-<div class="login-container" >
-    <div class="login-card" >
-        <h2>Iniciar sesión</h2>
-        <br>        
-        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
-            <div class="form group">
-                <label for="usr">Usuario</label>
-                <input type="text" id="nombreUsuario" name="nombreUsuario" required [(ngModel)]="nombreUsuario">
-            </div>   
-            <br>         
-            <div class="form-group password-container" >
-                <label for="pwd">Contraseña</label>
-                <div class="input-with-icon">
-                  <input [type]="showPassword ? 'text' : 'password'" id="contrasena" name="contrasena" required [(ngModel)]="contrasena" placeholder="Tu contraseña">
-                  <span class="toggle-password" (click)="togglePasswordVisibility()">
-                    <i class="material-icons">{{ showPassword ? 'visibility' : 'visibility_off' }}</i>
-                  </span>
-                </div>
-              </div>
-        <br>
-                <div class="remember-me">
-                    <input type="checkbox" id="remember" name="remember" [(ngModel)]="rememberMe">
-                    <label for="remember">Recuérdame</label>
-                </div>
-
-                <button type="submit" class="btn btn-primary"> Iniciar sesión</button>
-            </form>       
+<div class="login-container">
+  <div class="login-card">
+    
+    <div class="login-header">
+      <div class="brand-logo">🍔</div>
+      <h2>¡Bienvenido!</h2>
+      <p>Ingresa tus datos para pedir tu combo</p>
     </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+      
+      <div class="form-group">
+        <label for="nombreUsuario">Usuario</label>
+        <div class="input-wrapper">
+          <i class="material-icons">person</i>
+          <input 
+            type="text" 
+            id="nombreUsuario" 
+            name="nombreUsuario" 
+            required 
+            [(ngModel)]="nombreUsuario" 
+            placeholder="Nombre de usuario">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <div class="input-wrapper">
+          <i class="material-icons">lock</i>
+          <input 
+            [type]="showPassword ? 'text' : 'password'" 
+            id="contrasena" 
+            name="contrasena" 
+            required 
+            [(ngModel)]="contrasena" 
+            placeholder="Tu clave secreta">
+          
+          <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+            <i class="material-icons">
+              {{ showPassword ? 'visibility' : 'visibility_off' }}
+            </i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <label class="remember-me">
+          <input type="checkbox" id="remember" name="remember" [(ngModel)]="rememberMe">
+          <span class="custom-check"></span>
+          Recuérdame
+        </label>
+        <a href="#" class="forgot-pwd">¿Olvidaste tu clave?</a>
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="!loginForm.valid">
+        <span>INICIAR SESIÓN</span>
+        <i class="material-icons">chevron_right</i>
+      </button>
+
+    </form>
+    
+    <div class="login-footer">
+      ¿No tienes cuenta? <a href="#">Regístrate aquí</a>
+    </div>
+
+  </div>
 </div>
-
-  
-
-
-
-
-
-
-

@@ -7,6 +7,11 @@ import { CartComponent } from './pedidos/cart/cart.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'usuarios',
     loadChildren: () =>
       import('./usuarios/usuarios.module').then(m => m.UsuariosModule),

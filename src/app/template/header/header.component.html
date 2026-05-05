@@ -1,38 +1,44 @@
-<header class="encabezado">
-  <div class="contenedor-header">
-    <img class="logo" src="/assets/IMAGENES/Logo.png" alt="Logo del negocio" />
-    <h1 class="titulo">
-      <span class="rojo">PERRITOS</span>
-      <span class="amarillo">CALLEJEROS</span>
-    </h1>
-    <div class="botones">
-        
-    <button *ngIf="!usuario" class="Boton_Inicio" (click)="irlogin()"> 
-        <i class="bi bi-person-fill-add"></i>Iniciar Sesión
-      </button>
-      <span class="blanco" *ngIf="usuario">Hola, {{ usuario }}!</span>
+<header class="header-main">
+  <div class="header-top">
+    <div class="brand" (click)="home()">
+      <img class="logo-img" src="/assets/IMAGENES/Logo.png" alt="Perritos Callejeros" />
+      <h1 class="brand-title">
+        <span class="text-orange">PERRITOS</span>
+        <span class="text-white">CALLEJEROS</span>
+      </h1>
+    </div>
 
-      <button class="Boton_cart" (click)="ircart()">
-        <span class="texto-cart"><i class="bi bi-cart-check-fill">Carrito</i></span>
+    <div class="user-actions">
+      <button *ngIf="!usuario" class="btn-user login" (click)="irlogin()">
+        <i class="bi bi-person-circle"></i>
+        <span>Acceder</span>
+      </button>
+
+      <div class="user-welcome" *ngIf="usuario">
+        <i class="bi bi-person-check-fill"></i>
+        <span>Hola, <b>{{ usuario }}</b></span>
+      </div>
+
+      <button class="btn-user cart" (click)="ircart()">
+        <div class="cart-icon-wrapper">
+          <i class="bi bi-cart3"></i>
+          <span class="cart-badge">0</span>
+        </div>
       </button>
     </div>
   </div>
+
+  <nav class="nav-bar">
+    <ul class="nav-menu">
+      <li><a (click)="home()" class="nav-link active">INICIO</a></li>
+      <li><a (click)="articulo()" class="nav-link">PRODUCTOS</a></li>
+      <li><a (click)="reservacion()" class="nav-link">RESERVAS</a></li>
+      <li class="search-item">
+        <div class="search-box">
+          <input type="text" placeholder="¿Qué se te antoja hoy?" />
+          <i class="bi bi-search"></i>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </header>
-
-<nav class="barra-navegacion">
-  <ul class="menu">
-    <li><a  (click)="home()"><b>INICIO</b></a></li>
-      <li class="menu-item">
-        <a (click)="articulo()"><b>PRODUCTOS</b></a>
-      
-
-    </li>
-    
-    <li> <a (click)="reservacion()"><b>RESERVAS</b></a></li>      
-    <li>
-      <form class="formulario-busqueda">
-        <input type="text" placeholder="Buscar..." />
-      </form>
-    </li>
-  </ul>
-</nav>

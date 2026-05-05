@@ -1,88 +1,154 @@
-.productos {
-  background: linear-gradient(145deg, #111, #1b1b1b);
+.productos-section {
+  background-color: #0c0c0d;
   color: white;
-  padding: 3rem 2rem;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Encabezado de Sección */
+.header-container {
   text-align: center;
+  margin-bottom: 60px;
 }
 
 .productos-titulo {
-  color: #ffc800;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.productos-categoria {
-  margin-bottom: 5rem;
-  padding-bottom: 3rem;
-  border-bottom: 2px dashed #333;
+.productos-titulo span {
+  color: #ff6a00; /* Naranja principal */
 }
 
-.categoria-titulo {
-  color: #ffc800;
+.productos-subtitulo {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+/* Categorías */
+.categoria-group {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.categoria-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.categoria-header h3 {
   font-size: 1.8rem;
-  text-align: left;
-  margin: 2rem 0 1rem 0;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #f1f1f1;
 }
 
+.categoria-header i {
+  color: #ff6a00;
+}
+
+.divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #ff6a00, transparent);
+}
+
+/* Grid y Tarjetas */
 .productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
 }
 
 .producto-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  background: #161618;
+  border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.3s ease;
-  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .producto-card:hover {
-  transform: scale(1.04);
+  transform: translateY(-10px);
+  border-color: #ff6a00;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* Imagen con Efecto */
+.card-img-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
 }
 
 .producto-img {
   width: 100%;
-  height: 320px;
+  height: 100%;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.5s ease;
+}
+
+.producto-card:hover .producto-img {
+  transform: scale(1.15);
+}
+
+.img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, #161618, transparent);
+}
+
+/* Información */
+.card-info {
+  padding: 20px;
 }
 
 .producto-nombre {
-  margin: 1rem 0 0;
-  font-weight: bold;
   font-size: 1.2rem;
-  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .producto-precio {
-  color: #ffc800;
-  margin: 0.4rem 0 1rem;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ff6a00;
 }
 
-.producto-boton {
-  background: #ffc800;
-  color: #111;
+/* Botón de Agregar (Círculo Moderno) */
+.btn-add {
+  background: #ff6a00;
+  color: white;
   border: none;
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
   cursor: pointer;
-  margin-bottom: 1.2rem;
-  transition: all 0.3s ease;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: 0.3s;
 }
 
-.producto-boton:hover {
-  background: #fff200;
-  transform: scale(1.05);
+.btn-add:hover {
+  background: #ff8c00;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Ajuste especial para bebidas (imágenes más pequeñas si se requiere) */
+.drink-card .card-img-wrapper {
+  height: 180px;
 }

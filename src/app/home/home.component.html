@@ -1,48 +1,57 @@
-<section>
-    <div class="Cuerpo">   
-        <div class="producto">
-            <img class="Hambuguesa_Home" src="/assets/IMAGENES/HamburguesaHOME.png" alt="Hamburguesa">
-            <div class="informacion">
-                <p>Deliciosa hamburguesa con carne de res, queso cheddar, y vegetales frescos. Perfecta para cualquier antojo</p>
-                <a routerLink="/productos/articulo">
-                    <button class="boton-compra">Comprar Ahora</button>
-                  </a>
-            </div>
-        </div>
-        
-        <div class="producto">
-            <img class="Perro_Home" src="/assets/IMAGENES/Perro Home.jpg" alt="Perro Caliente">
-            <div class="informacion">
-                <p>Perro caliente con salchicha artesanal, cebolla crujiente y salsas especiales.!Pruebalo hoy!</p>
-                <a routerLink="/productos/articulo">
-                    <button class="boton-compra">Comprar Ahora</button>
-                  </a>
-                
-            </div>
-        </div>
-    
-        <div class="producto">
-            <img class="Papitas_Home" src="/assets/IMAGENES/Home-Reserva.jpg" alt="Papas Francesas">
-            <div class="informacion">
-                <p>Reserva tu mesa y disfruta de una experiencia única</p>
-                <a routerLink="/reservas/reservacion">
-                    <button class="boton-compra">Reservar</button>
-                  </a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="promocion">
-        ¡Aprovecha nuestra promoción! <br>
-        <span class="promocion-texto">2x1 en hamburguesas todos los Miercoles</span>
-    </div>
-    <br> <br>
-    
-    <div class="Mapa">
-        <br><br>
+<section class="home-container">
+  <header class="home-hero">
+    <h1>PERRITOS <span>CALLEJEROS</span></h1>
+    <p>El verdadero sabor artesanal en cada bocado</p>
+  </header>
 
-        <h2 class="titulo-ubicacion">Ubicación</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d350.6151818635466!2d-75.61805401638583!3d6.163160636034552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMDknNDcuNCJOIDc1wrAzNycwNC42Ilc!5e0!3m2!1ses-419!2sco!4v1728760235072!5m2!1ses-419!2sco"></iframe>
-    
+  <div class="cuerpo-grid">
+    <article class="card">
+      <div class="card-img">
+        <img src="/assets/IMAGENES/HamburguesaHOME.png" alt="Hamburguesa">
+        <div class="badge">Más Pedida</div>
+      </div>
+      <div class="card-content">
+        <h3>Hamburguesa XL</h3>
+        <p>Carne de res, queso cheddar fundido y vegetales seleccionados.</p>
+        <a routerLink="/productos/articulo" class="btn-main">Comprar Ahora</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-img">
+        <img src="/assets/IMAGENES/Perro Home.jpg" alt="Perro Caliente">
+      </div>
+      <div class="card-content">
+        <h3>Perro Callejero</h3>
+        <p>Salchicha artesanal, cebolla crunch y nuestras salsas de la casa.</p>
+        <a routerLink="/productos/articulo" class="btn-main">Comprar Ahora</a>
+      </div>
+    </article>
+
+    <article class="card highlight">
+      <div class="card-img">
+        <img src="/assets/IMAGENES/Home-Reserva.jpg" alt="Reserva">
+      </div>
+      <div class="card-content">
+        <h3>Experiencia VIP</h3>
+        <p>Reserva tu mesa para disfrutar con amigos de una noche épica.</p>
+        <a routerLink="/reservas/reservacion" class="btn-alt">Reservar Mesa</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="promo-banner">
+    <div class="promo-info">
+      <span class="tag">OFERTA</span>
+      <h2>¡MIÉRCOLES DE 2X1!</h2>
+      <p>Aplica para todas nuestras hamburguesas clásicas.</p>
     </div>
-    </section>
+  </div>
+
+  <div class="map-section">
+    <h2 class="map-title">¿DÓNDE ESTAMOS?</h2>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d350.6151818635466!2d-75.61805401638583!3d6.163160636034552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMDknNDcuNCJOIDc1wrAzNycwNC42Ilc!5e0!3m2!1ses-419!2sco!4v1728760235072!5m2!1ses-419!2sco" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>

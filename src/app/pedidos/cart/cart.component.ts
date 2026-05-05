@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../models/productos';
+import { Pedido } from '../../models/pedidos';
 import { ProductosService } from '../../services/productos.service';
+import { PedidosService } from '../../services/pedidos.service';
 import { UtilityService } from '../../services/utility.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -28,15 +30,13 @@ export class CartComponent {
   numeroTarjeta: string = '';
   fechaTarjeta: string = '';
   cvc: string = '';
-  private _pedidosService: any;
-  
 
   constructor(
     private _productoService: ProductosService,
+    private _pedidosService: PedidosService,
     private _util: UtilityService,
     private router: Router
   ) {
-    
     let c = this._util.getSession<Producto[]>('carrito');
     this.carrito = c ? c : [];
     this.totales();
@@ -46,8 +46,10 @@ export class CartComponent {
 athome(pedidoForm: NgForm) {
     if (pedidoForm.valid) {
         const nuevoPedido = {
+            id: 0,
+            fechaCompra: new Date(),
             email: this.email,
-            nombreCompleto: this.nombreCompleto,
+            nombre: this.nombreCompleto,
             ciudad: this.ciudad,
             direccion: this.direccion,
             tipoEnvio: this.tipoEnvio,
@@ -55,9 +57,10 @@ athome(pedidoForm: NgForm) {
             numeroTarjeta: this.numeroTarjeta,
             fechaTarjeta: this.fechaTarjeta,
             cvc: this.cvc,
+            total: this.total,
             productos: this.carrito,
-        };
-        this._pedidosService.createPedido(nuevoPedido).subscribe({
+        } as Pedido;
+        this._pedidosService.postpedido(nuevoPedido).subscribe({
             next: (_pedido: any) => {
                 Swal.fire({ title: 'Se realizó el pago correctamente', icon: 'success' });
                 this.router.navigate(['/home']);
@@ -76,24 +79,32 @@ athome(pedidoForm: NgForm) {
     this.router.navigate(['/productos/articulo']);
   }
 
-  eleminar(){
-    this._util.setSession('carrito' , undefined);
+  eliminarCarrito() {
+    this.carrito = [];
+    this._util.setSession('carrito', undefined);
+    this.totales();
     this.router.navigate(['/productos/articulo']);
-    Swal.fire({ title: 'productos eliminados correctamente', icon: 'success' });
+    Swal.fire({ title: 'Productos eliminados correctamente', icon: 'success' });
+  }
+
+  eliminarProducto(producto: Producto) {
+    this.carrito = this.carrito.filter((item) => item.id !== producto.id);
+    this._util.setSession('carrito', this.carrito.length ? this.carrito : undefined);
+    this.totales();
   }
 
   totales() {
     this.subtotal = 0;
+    this.total = 0;
     this.carrito.forEach((f) => {
       this.subtotal += f.cantidad * f.precio;
-    });    
-    this.carrito.forEach((j) =>{
-      this.total +=  j.precio; 
-    })
+      this.total += f.cantidad * f.precio;
+    });
   }
 
   setCantidad($event: any, p: Producto) {
-    p.cantidad = $event;
-    this.totales()
+    p.cantidad = Number($event);
+    this._util.setSession('carrito', this.carrito);
+    this.totales();
   }
 }

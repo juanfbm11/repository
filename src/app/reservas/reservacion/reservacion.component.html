@@ -1,24 +1,47 @@
-<section id="reserva">
-    <h2>Haz tu Reserva</h2>
-    <div class="reserva-container">
-      <div class="image-container">
-        <img src="assets/IMAGENES/Reservas.jpg" alt="Imagen de Reserva" class="img-reserva">
-      </div>
-      <form (ngSubmit)="irbookin(reservaForm)" #reservaForm="ngForm">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" [(ngModel)]="reservassselecionado.nombre" required>
-        </div>
-        <div class="form-group">
-          <label for="fecha">Fecha</label>
-          <input type="date" id="fecha" name="fecha" [(ngModel)]="reservassselecionado.fechaReserva" required>
-        </div>
-        <div class="form-group">
-          <label for="total">Número de Personas</label>
-          <input type="number" id="total" name="total" [(ngModel)]="reservassselecionado.total" required>
-        </div>
-        <button type="submit" class="btn-submit">Reservar</button> 
-      </form>
+<section id="reserva" class="reserva-section">
+  <div class="reserva-overlay">
+    <div class="reserva-header">
+      <h2 class="titulo-reserva">Reserva tu <span>Mesa</span></h2>
+      <p>Asegura tu lugar y disfruta de la mejor experiencia callejera</p>
     </div>
-</section>
 
+    <div class="reserva-container">
+      <div class="image-box">
+        <img src="assets/IMAGENES/Reservas.jpg" alt="Experiencia Perritos Callejeros" class="img-reserva">
+        <div class="image-badge">
+          <i class="bi bi-star-fill"></i>
+          <span>Ambiente Premium</span>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <form (ngSubmit)="irbookin(reservaForm)" #reservaForm="ngForm" class="modern-form">
+          
+          <div class="form-group">
+            <label for="nombre"><i class="bi bi-person"></i> Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="reservassselecionado.nombre" required placeholder="Ej. Juan Pérez">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha"><i class="bi bi-calendar-event"></i> Fecha</label>
+              <input type="date" id="fecha" name="fecha" [(ngModel)]="reservassselecionado.fechaReserva" required>
+            </div>
+
+            <div class="form-group">
+              <label for="total"><i class="bi bi-people"></i> Personas</label>
+              <input type="number" id="total" name="total" [(ngModel)]="reservassselecionado.total" required placeholder="0">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-reserva" [disabled]="!reservaForm.valid">
+            <span>Confirmar Reserva</span>
+            <i class="bi bi-arrow-right"></i>
+          </button> 
+          
+          <p class="form-note">* Te enviaremos un correo de confirmación.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
