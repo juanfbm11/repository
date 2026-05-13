@@ -174,3 +174,126 @@
   .nav-menu { gap: 15px; padding-bottom: 15px; }
   .search-item { display: none; } /* Ocultar buscador en móvil para ahorrar espacio */
 }
+.nav-link.admin-link {
+  color: #ff6a00 !important;
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  padding: 8px 15px !important;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.nav-link.admin-link::after {
+  display: none !important;
+}
+
+.nav-link.admin-link:hover {
+  background: rgba(255, 106, 0, 0.1);
+  border-color: #ff6a00;
+}
+
+/* ESTILOS DEL DESPLEGABLE DE USUARIO */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  padding: 5px 15px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.user-role {
+  font-size: 0.7rem;
+  color: #ff6a00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #161618;
+  min-width: 200px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  z-index: 3000;
+  margin-top: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-header {
+  padding: 12px 20px;
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown-content a {
+  color: #bbb;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.dropdown-content a i {
+  color: #ff6a00;
+  font-size: 1.1rem;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.05);
+  margin: 5px 0;
+}
+
+.logout-item {
+  color: #ff4d4d !important;
+}
+
+.logout-item i {
+  color: #ff4d4d !important;
+}
+
+.logout-item:hover {
+  background-color: rgba(255, 77, 77, 0.1) !important;
+}

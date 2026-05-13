@@ -1,57 +1,63 @@
-import {  NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { CartComponent } from './pedidos/cart/cart.component';
+import {  NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { HomeComponent } from "./home/home.component";
+import { CartComponent } from "./pedidos/cart/cart.component";
+import { AdminComponent } from "./admin/admin.component";
+import { adminGuard } from "./guards/admin.guard";
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
   },
   {
-    path: 'usuarios',
-    loadChildren: () =>
-      import('./usuarios/usuarios.module').then(m => m.UsuariosModule),
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [adminGuard]
   },
   {
-    path: 'productos',
+    path: "usuarios",
     loadChildren: () =>
-      import('./productos/productos.module').then(m => m.ProductosModule),
+      import("./usuarios/usuarios.module").then(m => m.UsuariosModule),
+    canActivate: [adminGuard]
   },
   {
-    path: 'reservas',
+    path: "productos",
     loadChildren: () =>
-      import('./reservas/reservas.module').then(m => m.ReservasModule),
+      import("./productos/productos.module").then(m => m.ProductosModule),
+  },
+  {
+    path: "reservas",
+    loadChildren: () =>
+      import("./reservas/reservas.module").then(m => m.ReservasModule),
   },  
   {
-    path: 'pedidos',
+    path: "pedidos",
     loadChildren:()=>
-      import('./pedidos/pedidos.module').then(m => m.PedidosModule),    
+      import("./pedidos/pedidos.module").then(m => m.PedidosModule),    
+    canActivate: [adminGuard]
   },
   
   {
-    path:'login',
+    path:"login",
     component: LoginComponent
   },
   {
-    path:'home',
+    path:"home",
     component: HomeComponent
   },
   {
-    path:'cart',
+    path:"cart",
     component:CartComponent
   },
 
  {
-    path:'**',
+    path:"**",
     component:HomeComponent
   }
-  
-
-
 ];
 
 @NgModule({

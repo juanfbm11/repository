@@ -1,4 +1,4 @@
-<header class="header-main">
+﻿<header class="header-main">
   <div class="header-top">
     <div class="brand" (click)="home()">
       <img class="logo-img" src="/assets/IMAGENES/Logo.png" alt="Perritos Callejeros" />
@@ -14,15 +14,29 @@
         <span>Acceder</span>
       </button>
 
-      <div class="user-welcome" *ngIf="usuario">
-        <i class="bi bi-person-check-fill"></i>
-        <span>Hola, <b>{{ usuario }}</b></span>
+      <div class="user-dropdown" *ngIf="usuario">
+        <button class="btn-user profile-btn">
+          <i class="bi bi-person-check-fill"></i>
+          <div class="user-info-text">
+            <span class="user-name">{{ usuario }}</span>
+            <span class="user-role">{{ roleName }}</span>
+          </div>
+          <i class="bi bi-chevron-down small"></i>
+        </button>
+        
+        <div class="dropdown-content">
+          <div class="dropdown-header">Mi Cuenta</div>
+          <a *ngIf="isAdmin" (click)="irAdmin()"><i class="bi bi-speedometer2"></i> Panel Admin</a>
+          <a (click)="ircart()"><i class="bi bi-cart3"></i> Mi Carrito</a>
+          <div class="dropdown-divider"></div>
+          <a (click)="logout()" class="logout-item"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+        </div>
       </div>
 
       <button class="btn-user cart" (click)="ircart()">
         <div class="cart-icon-wrapper">
           <i class="bi bi-cart3"></i>
-          <span class="cart-badge">0</span>
+          <span class="cart-badge">{{ cartCount }}</span>
         </div>
       </button>
     </div>
@@ -33,6 +47,7 @@
       <li><a (click)="home()" class="nav-link active">INICIO</a></li>
       <li><a (click)="articulo()" class="nav-link">PRODUCTOS</a></li>
       <li><a (click)="reservacion()" class="nav-link">RESERVAS</a></li>
+      <li *ngIf="isAdmin"><a (click)="irAdmin()" class="nav-link admin-link">ADMIN</a></li>
       <li class="search-item">
         <div class="search-box">
           <input type="text" placeholder="¿Qué se te antoja hoy?" />

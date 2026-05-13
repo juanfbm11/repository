@@ -5,4 +5,5 @@ export interface usuario{
     nombreUsuario:string; 
     contrasena:string;
     correo:string;
+    rol?: "admin" | "usuario";
 }

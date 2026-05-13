@@ -1,75 +1,81 @@
 <section class="productos-section">
   <div class="header-container">
     <h2 class="productos-titulo">Nuestra Carta <span>Artesanal</span></h2>
-    <p class="productos-subtitulo">Selecciona tus favoritos y recÃ­belos en la puerta de tu casa</p>
+    <p class="productos-subtitulo">Selecciona tus favoritos y recíbelos en la puerta de tu casa</p>
   </div>
 
-  <div class="categoria-group">
-    <div class="categoria-header">
-      <h3><i class="bi bi-egg-fried"></i> Hamburguesas</h3>
-      <div class="divider"></div>
-    </div>
-    
-    <div class="productos-grid">
-      <div class="producto-card" *ngFor="let h of hamburguesas">
-        <div class="card-img-wrapper">
-          <img [src]="'/assets/IMAGENES/' + h.image" [alt]="h.nombre" class="producto-img" />
-          <div class="img-overlay"></div>
-        </div>
-        <div class="card-info">
-          <h4 class="producto-nombre">{{h.nombre}}</h4>
-          <div class="card-footer">
-            <span class="producto-precio">${{h.precio}}</span>
-            <button class="btn-add" (click)="addCart(h)">
-              <i class="bi bi-plus-lg"></i>
-            </button>
+  <!-- SKELETON LOADING -->
+  <div class="loading-skeleton" *ngIf="isloading">
+    <div class="skeleton-card" *ngFor="let i of [1,2,3]"></div>
+  </div>
+
+  <div *ngIf="!isloading">
+    <div class="categoria-group" *ngIf="hamburguesas.length > 0">
+      <div class="categoria-header">
+        <h3><i class="bi bi-egg-fried"></i> Hamburguesas</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="productos-grid">
+        <div class="producto-card" *ngFor="let h of hamburguesas">
+          <div class="card-img-wrapper">
+            <img [src]="'/assets/IMAGENES/' + h.image" [alt]="h.nombre" class="producto-img" />
+            <div class="img-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h4 class="producto-nombre">{{h.nombre}}</h4>
+            <div class="card-footer">
+              <span class="producto-precio">{{h.precio | currency}}</span>
+              <button class="btn-add" (click)="addCart(h)">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="categoria-group">
-    <div class="categoria-header">
-      <h3><i class="bi bi-hot-dog"></i> Perros Calientes</h3>
-      <div class="divider"></div>
-    </div>
-    <div class="productos-grid">
-      <div class="producto-card" *ngFor="let p of perros">
-        <div class="card-img-wrapper">
-          <img [src]="'/assets/IMAGENES/' + p.image" [alt]="p.nombre" class="producto-img" />
-          <div class="img-overlay"></div>
-        </div>
-        <div class="card-info">
-          <h4 class="producto-nombre">{{p.nombre}}</h4>
-          <div class="card-footer">
-            <span class="producto-precio">${{p.precio}}</span>
-            <button class="btn-add" (click)="addCart(p)">
-              <i class="bi bi-plus-lg"></i>
-            </button>
+    <div class="categoria-group" *ngIf="perros.length > 0">
+      <div class="categoria-header">
+        <h3><i class="bi bi-hot-dog"></i> Perros Calientes</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="productos-grid">
+        <div class="producto-card" *ngFor="let p of perros">
+          <div class="card-img-wrapper">
+            <img [src]="'/assets/IMAGENES/' + p.image" [alt]="p.nombre" class="producto-img" />
+            <div class="img-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h4 class="producto-nombre">{{p.nombre}}</h4>
+            <div class="card-footer">
+              <span class="producto-precio">{{p.precio | currency}}</span>
+              <button class="btn-add" (click)="addCart(p)">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="categoria-group">
-    <div class="categoria-header">
-      <h3><i class="bi bi-cup-straw"></i> Bebidas</h3>
-      <div class="divider"></div>
-    </div>
-    <div class="productos-grid">
-      <div class="producto-card drink-card" *ngFor="let b of bebidas">
-        <div class="card-img-wrapper">
-          <img [src]="'/assets/IMAGENES/' + b.image" [alt]="b.nombre" class="producto-img" />
-        </div>
-        <div class="card-info">
-          <h4 class="producto-nombre">{{b.nombre}}</h4>
-          <div class="card-footer">
-            <span class="producto-precio">${{b.precio}}</span>
-            <button class="btn-add" (click)="addCart(b)">
-              <i class="bi bi-plus-lg"></i>
-            </button>
+    <div class="categoria-group" *ngIf="bebidas.length > 0">
+      <div class="categoria-header">
+        <h3><i class="bi bi-cup-straw"></i> Bebidas</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="productos-grid">
+        <div class="producto-card drink-card" *ngFor="let b of bebidas">
+          <div class="card-img-wrapper">
+            <img [src]="'/assets/IMAGENES/' + b.image" [alt]="b.nombre" class="producto-img" />
+          </div>
+          <div class="card-info">
+            <h4 class="producto-nombre">{{b.nombre}}</h4>
+            <div class="card-footer">
+              <span class="producto-precio">{{b.precio | currency}}</span>
+              <button class="btn-add" (click)="addCart(b)">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

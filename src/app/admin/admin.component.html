@@ -1,0 +1,32 @@
+﻿<div class="admin-container">
+  <div class="admin-header">
+    <h1>PANEL DE <span>ADMINISTRACIÓN</span></h1>
+    <p>Gestiona los contenidos y usuarios de Perritos Callejeros</p>
+  </div>
+
+  <div class="admin-grid">
+    <div class="admin-card" (click)="navigate('/usuarios')">
+      <i class="bi bi-people-fill"></i>
+      <h3>Usuarios</h3>
+      <p>Administrar cuentas de usuario y roles.</p>
+    </div>
+
+    <div class="admin-card" (click)="navigate('/productos')">
+      <i class="bi bi-bag-check-fill"></i>
+      <h3>Productos</h3>
+      <p>Gestionar el catálogo de productos y precios.</p>
+    </div>
+
+    <div class="admin-card" (click)="navigate('/reservas')">
+      <i class="bi bi-calendar-event-fill"></i>
+      <h3>Reservas</h3>
+      <p>Ver y gestionar reservas de mesas.</p>
+    </div>
+
+    <div class="admin-card" (click)="navigate('/pedidos')">
+      <i class="bi bi-cart-fill"></i>
+      <h3>Pedidos</h3>
+      <p>Seguimiento y gestión de pedidos realizados.</p>
+    </div>
+  </div>
+</div>
