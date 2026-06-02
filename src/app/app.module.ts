@@ -10,7 +10,7 @@ import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from "@a
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 import { AdminComponent } from "./admin/admin.component";
-import { MockInterceptor } from "./interceptors/mock.interceptor";
+
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { MockInterceptor } from "./interceptors/mock.interceptor";
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()), 
-    { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true }
+    
   ],
   bootstrap: [AppComponent],
 })

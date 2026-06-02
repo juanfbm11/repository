@@ -16,13 +16,13 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [adminGuard]
+    
   },
   {
     path: "usuarios",
     loadChildren: () =>
       import("./usuarios/usuarios.module").then(m => m.UsuariosModule),
-    canActivate: [adminGuard]
+    
   },
   {
     path: "productos",
